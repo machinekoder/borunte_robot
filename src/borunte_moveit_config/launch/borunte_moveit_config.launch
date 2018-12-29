@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Don't run rviz by default -->
+  <arg name="rviz" default="false"/>
+
+  <!-- Run in real or sim hardware mode -->
+  <arg name="sim" default="$(eval optenv('HAVE_REAL_HARDWARE', 'false') == 'false')"/>
+
+  <!-- Run HAL in a cpuset cgroup (real hardware only) -->
+  <arg unless="$(arg sim)" name="cgroup" default="/rt"/>
+  <arg     if="$(arg sim)" name="cgroup" default=""/>
+
+  <include
+      file="$(find borunte_moveit_config)/launch/moveit_planning_execution.launch"
+      pass_all_args="true"
+  />
+
+</launch>

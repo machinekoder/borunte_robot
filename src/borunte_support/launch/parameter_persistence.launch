@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find redis_store)/launch/redis_store.launch">
+    <arg name="defaults_path" value="$(find borunte_support)/config/defaults"/>
+  </include>
+
+</launch>

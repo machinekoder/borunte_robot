@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<launch>
+  <!--
+      This .launch file brings up the rb07 controller
+  -->
+
+  <!-- HAL debug output -->
+  <!-- - Output HAL debug messages to screen (console) -->
+  <arg name="hal_debug_output" default="false"/>
+  <!-- - Set HAL debug level, 0-5 -->
+  <arg name="hal_debug_level" default="1"/>
+
+  <!-- - Run in simulated hardware mode -->
+  <arg name="sim" default="$(eval optenv('HAVE_REAL_HARDWARE', 'false') == 'false')"/>
+
+  <!-- Set search path for robot HAL config -->
+  <param
+    name="hal_config_path"
+    value="$(find borunte_hal)"
+    />
+
+  <!-- cpuset cgroup for RT threads -->
+  <arg unless="$(arg sim)" name="cgroup" default="/rt"/>
+  <arg     if="$(arg sim)" name="cgroup" default=""/>
+
+   <rosparam
+      command="load"
+      file="$(find borunte_support)/config/hal_hw_interface.yaml"
+      />
+
+   <!-- <rosparam -->
+   <!--   command="load" -->
+   <!--   file="$(find borunte_support)/config/hal_io.yaml" -->
+   <!-- /> -->
+
+  <param
+    name="sim_mode"
+    value="$(arg sim)"
+    />
+
+  <param
+      name="hal_mgr/hal_file_dir"
+      value="$(find borunte_support)/halfiles"
+      />
+
+    <include file="$(find hal_hw_interface)/launch/hal_hw_interface.launch">
+      <arg name="hal_debug_output" value="$(arg hal_debug_output)"/>
+      <arg name="hal_debug_level" value="$(arg hal_debug_level)"/>
+    </include>
+
+    <rosparam
+      file="$(find borunte_support)/config/borunte_controllers.yaml"
+      command="load"
+    />
+
+    <node
+      name="ros_control_controller_manager"
+      pkg="controller_manager"
+      type="controller_manager"
+      respawn="false"
+      output="screen"
+      args="spawn joint_state_controller position_trajectory_controller"
+    />
+
+  <node
+    name="machinetalk"
+    pkg="borunte_support"
+    type="run_machinetalk.py"
+  />
+
+</launch>

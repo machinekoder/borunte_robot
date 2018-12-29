@@ -1,0 +1,9 @@
+<launch>
+    <arg name="moveit_controller_manager"
+         default="moveit_ros_control_interface::MoveItControllerManager"/>
+    <param name="moveit_controller_manager"
+           value="$(arg moveit_controller_manager)"/>
+
+    <rosparam file="$(find borunte_support)/config/borunte_controllers.yaml"/>
+
+</launch>

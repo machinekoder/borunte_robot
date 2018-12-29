@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Load hardware interface -->
+    <node name="machinekit_hw_interface" pkg="machinekit_ros_control" type="machinekit_hw_main"
+          output="screen"/>
+
+    <!-- Load controller settings -->
+    <rosparam file="$(find borunte_support)/config/borunte_controllers.yaml" command="load"/>
+
+    <!-- Load controller manager -->
+    <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false"
+	  output="screen" args="spawn joint_state_controller position_trajectory_controller" />
+
+</launch>

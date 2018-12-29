@@ -1,0 +1,19 @@
+<launch>
+
+  <node name="joy_node" pkg="joy" type="joy_node" required="true"/>
+
+  <node name="spacemouse_to_twist" pkg="jog_arm" type="spacemouse_to_twist" output="screen" required="true">
+    <param name="output_topic" type="string" value="jog_arm_server/frame_delta_jog_cmds_spacemouse" />
+  </node>
+
+  <node name="jog_arm_server_spacemouse" pkg="jog_arm" type="jog_arm_server" output="screen" required="true">
+    <param name="parameter_ns" type="string" value="jog_arm_server_spacemouse" />
+    <rosparam command="load" file="$(find borunte_support)/config/jog_arm_settings_spacemouse.yaml" />
+  </node>
+
+  <node name="jog_arm_server_gui" pkg="jog_arm" type="jog_arm_server" output="screen" required="true">
+    <param name="parameter_ns" type="string" value="jog_arm_server_gui" />
+    <rosparam command="load" file="$(find borunte_support)/config/jog_arm_settings_gui.yaml" />
+  </node>
+
+</launch>

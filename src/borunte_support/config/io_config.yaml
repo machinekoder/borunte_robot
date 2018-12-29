@@ -1,0 +1,12 @@
+# hal_io publish/subscribe topics for IO pins
+io:
+  digital_in_topics:
+    - /hal_io/digital_in_1
+    - /hal_io/digital_in_2
+    - /hal_io/digital_in_3
+    - /hal_io/digital_in_4
+  digital_out_topics:
+    - /hal_io/digital_out_1
+    - /hal_io/digital_out_2
+    - /hal_io/digital_out_3
+    - /hal_io/digital_out_4

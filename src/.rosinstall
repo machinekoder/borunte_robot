@@ -1,0 +1,12 @@
+- git:
+    local-name: hal_ros_control
+    uri: 'https://github.com/machinekoder/hal_ros_control.git'
+    version: update
+- git:
+    local-name: ros_control_boilerplate
+    uri: 'https://github.com/PickNikRobotics/ros_control_boilerplate.git'
+    version: kinetic-devel
+- git:
+    local-name: borunte_hal
+    uri: /home/alexander/repos/roesslersystems/borunte/borunte-hal
+    version: master

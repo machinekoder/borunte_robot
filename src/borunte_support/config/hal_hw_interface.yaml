@@ -1,0 +1,106 @@
+hal_mgr:
+  hal_files:
+    # Load a HAL file that sets up the realtime configuration
+    - setup.py
+    # - hal_io.py
+    # - robot_io_pins.py
+    - haltalk.py
+
+# Settings for ros_control hardware interface
+hardware_interface:
+  joints:
+    - joint_1
+    - joint_2
+    - joint_3
+    - joint_4
+    - joint_5
+    - joint_6
+  sim_control_mode: 0 # 0: position, 1: velocity
+
+# Publish all joint states ----------------------------------
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+  type:         joint_state_controller/JointStateController
+  publish_rate: 50
+
+# Joint Trajectory Controller -------------------------------
+# For detailed explanations of parameter see
+# http://wiki.ros.org/joint_trajectory_controller
+position_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  # These joints can likely just be copied from the hardware_interface
+  # list above
+  joints:
+    - joint_1
+    - joint_2
+    - joint_3
+    - joint_4
+    - joint_5
+    - joint_6
+  constraints:
+    goal_time: 5.0
+    #stopped_position_tolerance: 0.4 # Defaults to 0.01
+    joint_1:
+      trajectory: 0.60
+      goal:       0.15
+    joint_2:
+      trajectory: 0.60
+      goal:       0.15
+    joint_3:
+      trajectory: 0.60
+      goal:       0.15
+    joint_4:
+      trajectory: 0.60
+      goal:       0.15
+    joint_5:
+      trajectory: 0.60
+      goal:       0.15
+    joint_6:
+      trajectory: 0.60
+      goal:       0.15
+  # gains:
+  #   joint_1: {p: 2.0,  i: 0.0, d: 0.01, i_clamp: 1}
+  #   joint_2: {p: 2.0,  i: 0.0, d: 0.01, i_clamp: 1}
+
+  state_publish_rate:  50 # Defaults to 50
+  action_monitor_rate: 20 # Defaults to 20
+  stop_trajectory_duration: 0 # Defaults to 0.5
+
+# Individual Position Controllers ---------------------------------------
+# Allows to send individual ROS msg of Float64 to each joint separately
+joint_1_position_controller:
+  type: position_controllers/JointPositionController
+  joint: joint_1
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+joint_2_position_controller:
+  type: position_controllers/JointPositionController
+  joint: joint_2
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+joint_3_position_controller:
+  type: position_controllers/JointPositionController
+  joint: joint_3
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+joint_4_position_controller:
+  type: position_controllers/JointPositionController
+  joint: joint_4
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+joint_5_position_controller:
+  type: position_controllers/JointPositionController
+  joint: joint_5
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+joint_6_position_controller:
+  type: position_controllers/JointPositionController
+  joint: joint_6
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+# Group Position Controllers ---------------------------------------
+# Allows to send single ROS msg of Float64MultiArray to all joints
+joint_position_controller:
+  type: position_controllers/JointGroupPositionController
+  joints:
+    - joint_1
+    - joint_2
+    - joint_3
+    - joint_4
+    - joint_5
+    - joint_6

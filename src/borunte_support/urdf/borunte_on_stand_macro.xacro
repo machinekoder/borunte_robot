@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="borunte_on_stand_macro" params="prefix">
+
+    <xacro:include filename="$(find borunte_support)/urdf/borunte_macro.xacro"/>
+    <xacro:borunte prefix="${prefix}"/>
+
+    <xacro:include filename="$(find borunte_support)/urdf/borunte_stand_macro.xacro"/>
+    <xacro:borunte_stand prefix=""/>
+
+    <!-- attach robot to stand flange -->
+    <joint name="robot_attach_joint" type="fixed">
+        <parent link="borunte_stand_flange"/>
+        <child link="${prefix}base_link"/>
+        <axis xyz="0 0 0"/>
+        <origin rpy="0.0 0.0 0.0" xyz="0 0 0"/>
+    </joint>
+
+</xacro:macro>
+</robot>

@@ -1,0 +1,7 @@
+io:
+  digital_in_names:
+    mill: 1
+    button_1: 2
+  digital_out_names:
+    my_light: 1
+    Cooling_Fan: 3

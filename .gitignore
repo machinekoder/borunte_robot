@@ -1,0 +1,37 @@
+# From `wstool_update`
+/src/borunte_hal/
+/src/hal_ros_control/
+/src/ros_control_boilerplate/
+
+# From `catkin build` or 'catkin_make_isolated'
+/.catkin_tools/
+/build/
+/devel/
+/logs/
+/build_isolated/
+/devel_isolated/
+
+# temoprarily generated pictures in /docs/
+/docs/*.png
+/docs/*.svg
+/docs/.asciidoctor/
+
+# From `astyle`
+*.orig
+
+# Linux
+.directory
+core
+!core/
+
+# Python
+*.pyc
+
+# IDEs
+.cache
+.idea
+.vscode
+*.user
+
+# Machinekit
+autosave.halscope

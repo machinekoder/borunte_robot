@@ -1,0 +1,36 @@
+hal_io:
+
+  # I/O main loop publish rate in Hz
+  update_rate: 10
+
+  # pins: a hash/dict of HAL pins, can be all HAL types
+  # - HAL pin types are BIT, FLOAT, S32, U32
+  # - HAL pin directions are OUT, IN, IO
+  # - ROS publish topic, used for all HAL pins
+  # - ROS subscribe topic, used for HAL IN and IO pins
+  # HAL publish and subscribe topics are implicitly set to the HAL pin name per default
+  pins:
+    digital_in_1:
+      - BIT
+      - IN
+    digital_in_2:
+      - BIT
+      - IN
+    digital_in_3:
+      - BIT
+      - IN
+    digital_in_4:
+      - BIT
+      - IN
+    digital_out_1:
+      - BIT
+      - OUT
+    digital_out_2:
+      - BIT
+      - OUT
+    digital_out_3:
+      - BIT
+      - OUT
+    digital_out_4:
+      - BIT
+      - OUT

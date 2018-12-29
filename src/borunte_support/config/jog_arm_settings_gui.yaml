@@ -1,0 +1,39 @@
+# Whether the robot is started in simulation environment
+gazebo: false
+# Check collisions?
+collision_check: false
+command_in_topic:  jog_arm_server/frame_delta_jog_cmds
+joint_command_in_topic: jog_arm_server/joint_delta_jog_cmds
+# TF frame that incoming cmds are given in
+command_frame:  borunte_stand_link
+# Stop jogging if X seconds elapse without a new cmd
+incoming_command_timeout:  1
+joint_topic:  joint_states
+# Often 'manipulator' or 'arm'
+move_group_name:  manipulator
+# Slow down when the condition number hits this (close to singularity)
+singularity_threshold:  5.5
+# Stop when the condition number hits this
+hard_stop_singularity_threshold: 20
+command_out_topic: position_trajectory_controller/command
+# The MoveIt! planning frame. Often 'base_link'
+planning_frame:  borunte_stand_link
+# Larger c --> trust the filtered data more, trust the measurements less.
+low_pass_filter_coeff:  2.
+# 1/Nominal publish rate [seconds]
+publish_period:  0.01
+# delay between calculation and execution start of command
+publish_delay: 0.005
+scale:
+  # Max linear velocity. Meters per publish_period. Units is [m/s]
+  linear:  0.008
+  # Max angular velocity. Rads per publish_period. Units is [rad/s]
+  rotational:  0.016
+  # Max joint angular/linear velocity. Rads or Meters per publish
+  # period. Units is [rad/s] or [m/s].
+  joint: 0.04
+# Publish boolean warnings to this topic
+warning_topic:  jog_arm_server/warning
+# added as a buffer to joint limits [radians]. If moving quickly, make
+# this larger.
+joint_limit_margin: -0.01

@@ -1,0 +1,7 @@
+global_waypoints:
+  home:
+    - JOINTS
+    - [0, 0, 0, 0, 0, 0]
+  sleep_position:
+    - POSE
+    - [0, 0, 1, 0, 0, 0]
