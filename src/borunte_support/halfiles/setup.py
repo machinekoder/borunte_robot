@@ -25,6 +25,7 @@ def create_hw_interface(thread):
     rt.loadrt('{}/hal_hw_interface'.format(os.environ['COMP_DIR']))
     hal.addf('hal_hw_interface', thread.name)
 
+
 def connect_hw_interface():
     for nr in range(1, NUM_JOINTS + 1):
         hal.Pin('hal_hw_interface.joint_{}.pos-cmd'.format(nr)).link(
@@ -48,6 +49,10 @@ def setup_hal():
     configure_hal(thread)
     time.sleep(1.0)
     connect_hw_interface()
+
+    # start the sim config "powered on"
+    if sim:
+        hal.Signal('power-on').set(True)
 
 
 install_rt_comps()
