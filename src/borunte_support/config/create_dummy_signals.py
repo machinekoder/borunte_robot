@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # very small helper script for short-cutting
 # input and output pins when passing data
 # thru HAL shared memory setup
@@ -22,7 +23,9 @@ try:
     # when machinekit_ros_control has started with
     # parameter machinekit_interface: 0
     for i in range(1, 7):
-        hal.Pin('ul_iface_component.joint_%s.pos-cmd' % i).link('ul_iface_component.joint_%s.pos-fb' % i)
+        hal.Pin('ul_iface_component.joint_%s.pos-cmd' % i).link(
+            'ul_iface_component.joint_%s.pos-fb' % i
+        )
 
     launcher.register_exit_handler()  # enable on ctrl-C, needs to executed after HAL files
 

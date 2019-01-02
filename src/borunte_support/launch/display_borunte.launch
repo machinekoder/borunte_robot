@@ -17,4 +17,3 @@ type="state_publisher" />
 <node pkg="rviz" type="rviz" name="rviz" args="-d $(find borunte_support)/urdf/borunte.rviz"/>
 
 </launch>
-

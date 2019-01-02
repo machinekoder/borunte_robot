@@ -20,7 +20,7 @@ hardware_interface:
   # 1: velocity
   control_mode: 0
   sim_control_mode: 0 # 0: position, 1: velocity
-  
+
 # Publish all joint states
 # Creates the /joint_states topic necessary in ROS
 joint_state_controller:
@@ -31,7 +31,7 @@ joint_state_controller:
 # For detailed explanations of parameter see http://wiki.ros.org/joint_trajectory_controller
 position_trajectory_controller:
   type: position_controllers/JointTrajectoryController
-  # These joints can likely just be copied from the 
+  # These joints can likely just be copied from the
   # hardware_interface list above
   joints:
     - joint_1
@@ -107,4 +107,3 @@ joint_position_controller:
     - joint_4
     - joint_5
     - joint_6
-    

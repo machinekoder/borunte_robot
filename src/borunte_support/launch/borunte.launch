@@ -1,5 +1,5 @@
-<launch> 
- <include file="$(find gazebo_ros)/launch/empty_world.launch">  
-   <arg name="model" value="borunte.urdf"/> 
- </include> 
+<launch>
+ <include file="$(find gazebo_ros)/launch/empty_world.launch">
+   <arg name="model" value="borunte.urdf"/>
+ </include>
 </launch>

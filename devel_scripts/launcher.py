@@ -28,7 +28,9 @@ def start_process(command, line):
 
     :type command: sh.Command
     """
-    processes.append(command(shlex.split(line), _out=sys.stdout, _err=sys.stderr, _bg=True))
+    processes.append(
+        command(shlex.split(line), _out=sys.stdout, _err=sys.stderr, _bg=True)
+    )
     time.sleep(TIMEOUT)
 
 
