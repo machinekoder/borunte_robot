@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+  <name>borunte_robot</name>
+  <version>1.0.0</version>
+  <description>
+    borunte_robot metapackage for all of the packages required
+    to work with the Borunte BRTIRUS0805A with Machinekit.
+  </description>
+
+  <maintainer email="alex@machinekoder.com">Alexander Rössler</maintainer>
+  <license>>BSD</license>
+  <url type="website">https://machinekoder.com</url>
+  <url type="repository">
+    https://github.com/machinekoder/borunte_robot
+  </url>
+  <url type="bugtracker">
+    https://github.com/machinekoder/borunte_robot/issues
+  </url>
+  <author>Alexander Rössler</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>borunte_hal</run_depend>
+  <run_depend>borunte_support</run_depend>
+  <run_depend>borunte_moveit_config</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+
+</package>
