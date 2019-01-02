@@ -1,1 +1,1 @@
-# ROS config for the Borunte robot
+# ROS config for the Borunte BRTIRUS0805A robot
