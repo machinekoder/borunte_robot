@@ -28,10 +28,10 @@
       file="$(find borunte_support)/config/hal_hw_interface.yaml"
       />
 
-   <!-- <rosparam -->
-   <!--   command="load" -->
-   <!--   file="$(find borunte_support)/config/hal_io.yaml" -->
-   <!-- /> -->
+    <rosparam
+      command="load"
+      file="$(find borunte_support)/config/hal_io.yaml"
+    />
 
   <param
     name="sim_mode"

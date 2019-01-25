@@ -11,6 +11,8 @@ def setup_sim_pins():
     rcomp = hal.RemoteComponent('io-rcomp', timer=100)
     for pin in hal_io.pins():
         name = '.'.join(pin.name.split('.')[1:])
+        if not name.startswith('digital_'):
+            continue
         dir_map = {hal.HAL_IN: hal.HAL_OUT, hal.HAL_OUT: hal.HAL_IN}
         rcomp.newpin(name, pin.type, dir_map.get(pin.dir, hal.HAL_IO))
         if pin.linked:
@@ -27,11 +29,17 @@ def setup_gripper_pins():
     hal.Pin('hal_io.digital_in_1').link('gripper-opened')
 
 
+def setup_robot_control_pins():
+    hal.Pin('hal_io.state_cmd').link(hal.Signal('power-on'))
+    hal.Pin('hal_io.state_fb').link(hal.Signal('lamp-yellow'))
+
+
 def setup_pins():
     sim = rospy.get_param('/sim_mode', True)
     setup_gripper_pins()
     if sim:
         setup_sim_pins()
+    setup_robot_control_pins()
 
 
 setup_pins()

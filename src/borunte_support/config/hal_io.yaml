@@ -34,3 +34,15 @@ hal_io:
     digital_out_4:
       - BIT
       - OUT
+    zero_all_joints:
+      - BIT
+      - OUT
+    state_cmd:
+      - BIT
+      - IO
+    state_fb:
+      - BIT
+      - IN
+    reset:
+      - BIT
+      - OUT

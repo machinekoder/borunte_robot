@@ -2,8 +2,8 @@ hal_mgr:
   hal_files:
     # Load a HAL file that sets up the realtime configuration
     - setup.py
-    # - hal_io.py
-    # - robot_io_pins.py
+    - hal_io.py
+    - robot_io_pins.py
     - haltalk.py
 
 # Settings for ros_control hardware interface
