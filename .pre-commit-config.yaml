@@ -20,7 +20,7 @@ repos:
     rev: master
     hooks:
       - id: black
-        args: [-S]
+        args: [-S,  -l, "80"]
       - id: qmllint
       - id: qmlfmt
         args: [-i 2, -t 2]
