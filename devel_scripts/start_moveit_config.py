@@ -6,7 +6,8 @@ from launcher import start_process, terminate_processes, wait_loop
 
 if __name__ == '__main__':
     start_process(
-        roslaunch, 'borunte_moveit_config borunte_moveit_config.launch rviz:="false"'
+        roslaunch,
+        'borunte_moveit_config borunte_moveit_config.launch rviz:="false"',
     )
     wait_loop()
     terminate_processes()
