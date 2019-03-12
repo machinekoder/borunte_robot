@@ -7,7 +7,7 @@ scale: # Only used if command_in_type=="unitless"
   joint: 0.01 # Max joint angular/linear velocity. Rads or Meters per publish period. Units is [rad/s] or [m/s].
 cartesian_command_in_topic:  jog_arm_server/frame_delta_jog_cmds_spacemouse # Topic for xyz commands
 joint_command_in_topic: jog_arm_server/joint_delta_jog_cmds_spacemouse # Topic for angle commands
-command_frame:  rb07_stand_link # TF frame that incoming cmds are given in
+command_frame:  borunte_stand_link # TF frame that incoming cmds are given in
 incoming_command_timeout:  0.5  # Stop jogging if X seconds elapse without a new cmd
 joint_topic:  joint_states
 move_group_name:  manipulator # Often 'manipulator' or 'arm'
