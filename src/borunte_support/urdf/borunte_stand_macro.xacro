@@ -27,7 +27,7 @@
                 <parent link="${prefix}borunte_stand_link"/>
                 <child link="${prefix}borunte_stand_flange"/>
                 <axis xyz="0 0 0"/>
-                <origin rpy="0.0 0.0 -0.785398163" xyz="-0.1591 0.1591 0.70485"/>
+                <origin rpy="0.0 0.0 -0.719" xyz="0.053 -0.053 0.719"/>
         </joint>
 
 </xacro:macro>

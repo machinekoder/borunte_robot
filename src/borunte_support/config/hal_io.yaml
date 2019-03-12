@@ -3,46 +3,55 @@ hal_io:
   # I/O main loop publish rate in Hz
   update_rate: 10
 
-  # pins: a hash/dict of HAL pins, can be all HAL types
-  # - HAL pin types are BIT, FLOAT, S32, U32
-  # - HAL pin directions are OUT, IN, IO
-  # - ROS publish topic, used for all HAL pins
-  # - ROS subscribe topic, used for HAL IN and IO pins
-  # HAL publish and subscribe topics are implicitly set to the HAL pin name per default
-  pins:
+  # Pin definitions
+  #
+  # output_pins: are read from a topic (default) or service
+
+  # HAL pins are named hal_io.<pin_name>
+
+  # valid keys for all pins:
+  #   hal_type:  BIT, FLOAT, S32, U32
+
+  publish_pins:
+    # publish_pins values from HAL pin published to ROS topic
+    # valid keys:
+    #   hal_dir:  IN (default), IO
+    #   pub_topic:  (any valid ROS topic name, default /hal_io/<pin_name>)
     digital_in_1:
-      - BIT
-      - IN
+      hal_type: BIT
     digital_in_2:
-      - BIT
-      - IN
+      hal_type: BIT
     digital_in_3:
-      - BIT
-      - IN
+      hal_type: BIT
     digital_in_4:
-      - BIT
-      - IN
-    digital_out_1:
-      - BIT
-      - OUT
-    digital_out_2:
-      - BIT
-      - OUT
-    digital_out_3:
-      - BIT
-      - OUT
-    digital_out_4:
-      - BIT
-      - OUT
-    zero_all_joints:
-      - BIT
-      - OUT
-    state_cmd:
-      - BIT
-      - IO
+      hal_type: BIT
     state_fb:
-      - BIT
-      - IN
+      hal_type: BIT
+  subscribe_pins:
+    # subscribe_pins values from ROS topic copied to HAL output pin
+    # valid keys:
+    #   hal_dir:  OUT (default), IO
+    #   sub_topic:  (any valid ROS topic name, default /hal_io/<pin_name>)
+    digital_out_1:
+      hal_type: BIT
+    digital_out_2:
+      hal_type: BIT
+    digital_out_3:
+      hal_type: BIT
+    digital_out_4:
+      hal_type: BIT
+    zero_all_joints:
+      hal_type: BIT
+      hal_dir: IO
+    state_cmd:
+      hal_type: BIT
+      hal_dir: IO
     reset:
-      - BIT
-      - OUT
+      hal_type: BIT
+# service_pins:
+    # service_pins values from ROS service copied to HAL output pin
+    #   and published topic
+    # valid keys:
+    #   hal_dir:  OUT (default), IO
+    #   service_name:  (any valid ROS service name, default /hal_io/<pin_name>)
+    #   pub_topic:  (any valid ROS topic name, default /hal_io/<pin_name>)

@@ -1,39 +1,34 @@
-# Whether the robot is started in simulation environment
-gazebo: false
-# Check collisions?
-collision_check: false
-command_in_topic:  jog_arm_server/frame_delta_jog_cmds
-joint_command_in_topic: jog_arm_server/joint_delta_jog_cmds
-# TF frame that incoming cmds are given in
-command_frame:  borunte_stand_link
-# Stop jogging if X seconds elapse without a new cmd
-incoming_command_timeout:  1
+gazebo: false # Whether the robot is started in simulation environment
+collision_check: false # Check collisions?
+command_in_type: "unitless" # "unitless"> in the range [-1:1], as if from joystick. "speed_units"> cmds are in m/s and rad/s
+scale: # Only used if command_in_type=="unitless"
+  linear:  0.008 # Max linear velocity. Meters per publish_period. Units is [m/s]
+  rotational:  0.016 # Max angular velocity. Rads per publish_period. Units is [rad/s]
+  joint: 0.04 # Max joint angular/linear velocity. Rads or Meters per publish period. Units is [rad/s] or [m/s].
+cartesian_command_in_topic:  jog_arm_server/frame_delta_jog_cmds # Topic for xyz commands
+joint_command_in_topic: jog_arm_server/joint_delta_jog_cmds # Topic for angle commands
+command_frame:  rb07_stand_link # TF frame that incoming cmds are given in
+incoming_command_timeout:  1 # Stop jogging if X seconds elapse without a new cmd
 joint_topic:  joint_states
-# Often 'manipulator' or 'arm'
-move_group_name:  manipulator
-# Slow down when the condition number hits this (close to singularity)
-singularity_threshold:  5.5
-# Stop when the condition number hits this
-hard_stop_singularity_threshold: 20
-command_out_topic: position_trajectory_controller/command
-# The MoveIt! planning frame. Often 'base_link'
-planning_frame:  borunte_stand_link
+move_group_name:  manipulator # Often 'manipulator' or 'arm'
+lower_singularity_threshold:  30 # Start decelerating when the condition number hits this (close to singularity). Larger --> closer to singularity
+hard_stop_singularity_threshold: 45 # Stop when the condition number hits this. Larger --> closer to singularity
+lower_collision_proximity_threshold: 0.1 # Start decelerating when a collision is this far [m]
+hard_stop_collision_proximity_threshold: 0.005 # Stop when a collision is this far [m]
+planning_frame:  borunte_stand_link # The MoveIt! planning frame. Often 'base_link'
 # Larger c --> trust the filtered data more, trust the measurements less.
-low_pass_filter_coeff:  2.
-# 1/Nominal publish rate [seconds]
-publish_period:  0.01
-# delay between calculation and execution start of command
-publish_delay: 0.005
-scale:
-  # Max linear velocity. Meters per publish_period. Units is [m/s]
-  linear:  0.008
-  # Max angular velocity. Rads per publish_period. Units is [rad/s]
-  rotational:  0.016
-  # Max joint angular/linear velocity. Rads or Meters per publish
-  # period. Units is [rad/s] or [m/s].
-  joint: 0.04
-# Publish boolean warnings to this topic
-warning_topic:  jog_arm_server/warning
-# added as a buffer to joint limits [radians]. If moving quickly, make
-# this larger.
-joint_limit_margin: -0.01
+low_pass_filter_coeff:  2. # Larger-> more smoothing to jog commands, but more lag.
+publish_period:  0.008 # 1/Nominal publish rate [seconds]
+publish_delay: 0.005 # delay between calculation and execution start of command
+collision_check_rate: 5 # [Hz] Collision-checking can easily bog down a CPU if done too often.
+warning_topic:  jog_arm_server/warning # Publish boolean warnings to this topic
+joint_limit_margin: 0.1 # added as a buffer to joint limits [radians]. If moving quickly, make this larger.
+command_out_topic: position_trajectory_controller/command
+# What type of topic does your robot driver expect?
+# Currently supported are std_msgs/Float64MultiArray (for ros_control JointGroupVelocityController)
+# or trajectory_msgs/JointTrajectory (for Universal Robots and other non-ros_control robots)
+command_out_type: trajectory_msgs/JointTrajectory
+# Can save some bandwidth as most robots only require positions or velocities
+publish_joint_positions: true
+publish_joint_velocities: true
+publish_joint_accelerations: false
