@@ -164,7 +164,7 @@
                 <parent link="link_2"/>
                 <child link="link_3"/>
                 <axis xyz="0 1 0"/>
-                <origin rpy="0.0 ${pi/2.0} 0.0" xyz="0.0 0.0 0.390"/>
+                <origin rpy="0.0 ${pi/2.0} 0.0" xyz="0.0 0.0 0.39"/>
         </joint>
 
 	<joint name="${prefix}joint_4" type="revolute">
@@ -172,14 +172,14 @@
                 <parent link="link_3"/>
                 <child link="link_4"/>
                 <axis xyz="0 0 1"/>
-                <origin rpy="0.0 0.0 0.0" xyz="-0.125 -0.0955 0.0950"/>
+                <origin rpy="0.0 0.0 0.0" xyz="-0.125 -0.1 0.095"/>
         </joint>
         <joint name="${prefix}joint_5" type="revolute">
                 <limit effort="1000.0" lower="-1.571" upper="1.571" velocity="2.35"/>
                 <parent link="link_4"/>
                 <child link="link_5"/>
                 <axis xyz="0 1 0"/>
-                <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.0 0.29"/>
+                <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.0 0.3095"/>
         </joint>
 
 	<joint name="${prefix}joint_6" type="revolute">
