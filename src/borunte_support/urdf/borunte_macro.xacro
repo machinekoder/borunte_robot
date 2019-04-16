@@ -8,8 +8,8 @@
                                 <mesh filename="package://borunte_support/meshes/base_link.stl"/>
                         </geometry>
                         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
-                        <material name="DarkGray">
-                                <color rgba="0.5 0.5 0.5 1.0"/>
+                        <material name="Black">
+                                <color rgba="0.1 0.1 0.1 1.0"/>
                         </material>
                 </visual>
                 <collision>
@@ -25,8 +25,8 @@
                                 <mesh filename="package://borunte_support/meshes/link_1.stl"/>
                         </geometry>
                         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
-                        <material name="DarkGray">
-                                <color rgba="0.5 0.5 0.5 1.0"/>
+                        <material name="DarkRed">
+                                <color rgba="0.5 0.0 0.0 1.0"/>
                         </material>
                 </visual>
                 <collision>
@@ -47,9 +47,7 @@
                                 <mesh filename="package://borunte_support/meshes/link_2.stl"/>
                         </geometry>
                         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
-                        <material name="DarkGray">
-                                <color rgba="0.5 0.5 0.5 1.0"/>
-                        </material>
+                        <material name="DarkRed"/>
                 </visual>
                 <collision>
                         <geometry>
@@ -69,9 +67,7 @@
                                 <mesh filename="package://borunte_support/meshes/link_3.stl"/>
                         </geometry>
                         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
-                        <material name="DarkGray">
-                                <color rgba="0.5 0.5 0.5 1.0"/>
-                        </material>
+                        <material name="DarkRed"/>
                 </visual>
                 <collision>
                         <geometry>
@@ -92,9 +88,7 @@
                                 <mesh filename="package://borunte_support/meshes/link_4.stl"/>
                         </geometry>
                         <origin rpy="0.0 0.0 0.0" xyz="0 0 0"/>
-                        <material name="DarkGray">
-                                <color rgba="0.5 0.5 0.5 1.0"/>
-                        </material>
+                        <material name="DarkRed"/>
                 </visual>
                 <collision>
                         <geometry>
@@ -114,9 +108,7 @@
                                 <mesh filename="package://borunte_support/meshes/link_5.stl"/>
                         </geometry>
                         <origin rpy="0 0 0" xyz="0 0 0"/>
-                        <material name="DarkGray">
-                                <color rgba="0.5 0.5 0.5 1.0"/>
-                        </material>
+                        <material name="DarkRed"/>
                 </visual>
                 <collision>
                         <geometry>
@@ -136,9 +128,7 @@
                                 <mesh filename="package://borunte_support/meshes/link_6.stl"/>
                         </geometry>
                         <origin rpy="0 0 0.0" xyz="0 0 0"/>
-                        <material name="DarkGray">
-                                <color rgba="0.5 0.5 0.5 1.0"/>
-                        </material>
+                        <material name="DarkRed"/>
                 </visual>
                 <collision>
                         <geometry>
