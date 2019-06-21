@@ -183,7 +183,7 @@
         </joint>
 
 	<joint name="${prefix}joint_6" type="revolute">
-                <limit effort="1000.0" lower="-3.141" upper="3.141" velocity="2.35"/>
+                <limit effort="1000.0" lower="${-pi}" upper="${pi}" velocity="2.35"/>
                 <parent link="link_5"/>
                 <child link="link_6"/>
                 <axis xyz="0 0 1"/>
@@ -209,11 +209,34 @@
         </joint>
 
         <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
-        <link name="${prefix}tool0" />
+        <link name="${prefix}tool0">
+            <visual>
+                    <geometry>
+                        <mesh filename="package://borunte_support/meshes/robotiq_gripper.stl"/>
+                    </geometry>
+                    <origin rpy="0 0 0.0" xyz="0 0 0"/>
+                    <material name="Black"/>
+            </visual>
+            <collision>
+                    <geometry>
+                            <mesh filename="package://borunte_support/meshes/robotiq_gripper_collision.stl"/>
+                    </geometry>
+                    <origin rpy="0 0 0.0" xyz="0 0 0"/>
+            </collision>
+        </link>
         <joint name="${prefix}link_6-tool0" type="fixed">
-                <origin xyz="0 0 0" rpy="${pi} ${-pi/2.0} 0" />
                 <parent link="${prefix}link_6" />
                 <child link="${prefix}tool0" />
+                <axis xyz="0 0 1"/>
+                <origin xyz="0 0 0.030" rpy="${pi} ${pi} ${pi/2.0}" />
         </joint>
+
+        <link name="${prefix}tool0_tip" />
+        <joint name="${prefix}tool0-tool0_tip" type="fixed">
+                <parent link="${prefix}tool0" />
+                <child link="${prefix}tool0_tip" />
+                <origin xyz="0 0 0.15" rpy="0 0 0" />
+        </joint>
+
 </xacro:macro>
 </robot>
