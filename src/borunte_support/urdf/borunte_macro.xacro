@@ -148,7 +148,7 @@
                 <parent link="base_link"/>
                 <child link="link_1"/>
 		<axis xyz="0 0 1"/>
-    		<origin rpy="0.0 0.0 0.0" xyz="0 0 0.271"/>
+    		<origin rpy="0.0 0.0 0.0" xyz="0 0 0.24"/>
         </joint>
 
 	<joint name="${prefix}joint_2" type="revolute">
@@ -156,7 +156,7 @@
                 <parent link="link_1"/>
                 <child link="link_2"/>
                 <axis xyz="0 1 0"/>
-                <origin rpy="0.0 0.0 0.0" xyz="0.07 0.095 0.1945"/>
+                <origin rpy="0.0 0.0 0.0" xyz="0.07 0.08 0.165"/>
         </joint>
 
 	<joint name="${prefix}joint_3" type="revolute">
@@ -168,7 +168,7 @@
         </joint>
 
 	<joint name="${prefix}joint_4" type="revolute">
-                <limit effort="1000.0" lower="-1.571" upper="1.571" velocity="2.0"/>
+                <limit effort="1000.0" lower="-2.094" upper="2.094" velocity="2.0"/>
                 <parent link="link_3"/>
                 <child link="link_4"/>
                 <axis xyz="0 0 1"/>
@@ -179,7 +179,7 @@
                 <parent link="link_4"/>
                 <child link="link_5"/>
                 <axis xyz="0 1 0"/>
-                <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.0 0.3095"/>
+                <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.0 0.31"/>
         </joint>
 
 	<joint name="${prefix}joint_6" type="revolute">
@@ -249,7 +249,7 @@
         <joint name="${prefix}tool0-tool0_tip" type="fixed">
                 <parent link="${prefix}tool0" />
                 <child link="${prefix}tool0_tip" />
-                <origin xyz="0 0 0.15" rpy="0 0 0" />
+                <origin xyz="0 0 0.125" rpy="0 0 0" />
         </joint>
 
         <!-- Camera frame: location of wrist camera -->
