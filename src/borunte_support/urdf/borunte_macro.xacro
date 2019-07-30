@@ -144,7 +144,7 @@
 
         <!-- joint list -->
 	<joint name="${prefix}joint_1" type="revolute">
-        	<limit effort="1000.0" lower="-2.967" upper="2.967" velocity="3.14"/>
+        	<limit effort="1000.0" lower="-3.076" upper="3.076" velocity="3.14"/>
                 <parent link="base_link"/>
                 <child link="link_1"/>
 		<axis xyz="0 0 1"/>
@@ -160,7 +160,7 @@
         </joint>
 
 	<joint name="${prefix}joint_3" type="revolute">
-                <limit effort="1000.0" lower="-1.571" upper="1.222" velocity="1.3"/>
+                <limit effort="1000.0" lower="-2.094" upper="1.570" velocity="1.3"/>
                 <parent link="link_2"/>
                 <child link="link_3"/>
                 <axis xyz="0 1 0"/>
@@ -175,7 +175,7 @@
                 <origin rpy="0.0 0.0 0.0" xyz="-0.125 -0.1 0.095"/>
         </joint>
         <joint name="${prefix}joint_5" type="revolute">
-                <limit effort="1000.0" lower="-1.571" upper="1.571" velocity="2.35"/>
+                <limit effort="1000.0" lower="-2.094" upper="2.094" velocity="2.35"/>
                 <parent link="link_4"/>
                 <child link="link_5"/>
                 <axis xyz="0 1 0"/>
