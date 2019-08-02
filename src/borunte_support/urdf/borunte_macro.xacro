@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-<xacro:macro name="borunte" params="prefix">
+<xacro:macro name="borunte" params="prefix tool0_trans tool0_rot">
         <!-- link list -->
 	<link name="${prefix}base_link">
                 <visual>
@@ -249,7 +249,7 @@
         <joint name="${prefix}tool0-tool0_tip" type="fixed">
                 <parent link="${prefix}tool0" />
                 <child link="${prefix}tool0_tip" />
-                <origin xyz="0 0 0.15" rpy="0 0 0" />
+                <origin xyz="${tool0_trans}" rpy="${tool0_rot}" />
         </joint>
 
         <!-- Camera frame: location of wrist camera -->
