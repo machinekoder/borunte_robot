@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 <xacro:macro name="borunte_stand" params="prefix">
-        <!-- link list -->
+        <!-- link list  -->
 	    <link name="${prefix}borunte_stand_link">
                 <visual>
                         <geometry>
-                                <mesh filename="package://borunte_support/meshes/stand-urdf-prototype.stl"/>
+                                <mesh filename="package://borunte_support/meshes/borunte_carriage.stl"/>
                         </geometry>
                         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
                         <material name="DarkGray">
@@ -14,9 +14,9 @@
                 </visual>
                 <collision>
                         <geometry>
-                                <mesh filename="package://borunte_support/meshes/stand-urdf-prototype.stl"/>
+                                <mesh filename="package://borunte_support/meshes/borunte_carriage.stl"/>
                         </geometry>
-                        <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
+                        <origin rpy="0.0 0 0.0" xyz="0 0 0.016"/>
                 </collision>
         </link>
 
@@ -27,7 +27,7 @@
                 <parent link="${prefix}borunte_stand_link"/>
                 <child link="${prefix}borunte_stand_flange"/>
                 <axis xyz="0 0 0"/>
-                <origin rpy="0.0 0.0 ${pi/4.0}" xyz="0.053 0.053 0.719"/>
+                <origin rpy="0.0 0.0 ${pi/4.0}" xyz="0.0 0.0 0.735"/>
         </joint>
 
 </xacro:macro>
