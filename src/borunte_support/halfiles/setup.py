@@ -53,7 +53,7 @@ def setup_hal():
 
     from borunte_hal.robot import setup_thread, configure_hal
 
-    cgname = rospy.get_param('/hal_mgr/hal_cgroup_name')
+    cgname = rospy.get_param('/hal_mgr/rt_cgname', None)
     thread = setup_thread(cgname)
     create_hw_interface(thread)
     configure_hal(thread)

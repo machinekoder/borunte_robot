@@ -8,12 +8,6 @@
   <!-- - Set HAL debug level, 0-5 -->
   <arg name="hal_debug_level" default="1"/>
 
-  <!-- Set the cpuset cgroup for RT threads -->
-  <param
-      name="hal_mgr/hal_cgroup_name"
-      value="$(arg cgroup)"
-      />
-
   <!-- Non-standard joint names:
        - Create a file [robot_moveit_config]/config/joint_names.yaml
            controller_joint_names: [joint_1, joint_2, ... joint_N]
@@ -30,17 +24,14 @@
       value="$(arg sim)"
       />
 
-  <!-- Run HAL in a cpuset cgroup (real hardware only) -->
-  <arg unless="$(arg sim)" name="cgroup" default="/rt"/>
-  <arg     if="$(arg sim)" name="cgroup" default=""/>
-
-
   <!-- the "rviz" argument controls whether we start an RViz instance or not -->
   <arg name="rviz" default="true"/>
 
+  <arg name="tool" default="none" />
   <!-- load the robot_description parameter before launching ROS-I nodes -->
   <include file="$(find borunte_moveit_config)/launch/planning_context.launch" >
     <arg name="load_robot_description" value="true" />
+    <arg name="tool" value="$(arg tool)" />
   </include>
 
   <!-- load the parameter persistence server -->
@@ -81,6 +72,6 @@
     </include>
   </group>
 
-  <include file="$(find borunte_moveit_config)/launch/default_warehouse_db.launch" />
+  <!-- <include file="$(find borunte_moveit_config)/launch/default_warehouse_db.launch" /> -->
 
 </launch>
