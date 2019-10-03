@@ -30,8 +30,9 @@ def setup_gripper_pins():
 
 
 def setup_robot_control_pins():
-    hal.Pin('hal_io.state_cmd').link(hal.Signal('power-on'))
-    hal.Pin('hal_io.state_fb').link(hal.Signal('lamp-yellow'))
+    hal.Pin('hal_io.state_cmd').link(hal.Signal('state-cmd'))
+    hal.Pin('hal_io.state_fb').link(hal.Signal('state-fb'))
+    hal.Pin('hal_io.reset').link(hal.Signal('reset-in'))
 
 
 def setup_pins():

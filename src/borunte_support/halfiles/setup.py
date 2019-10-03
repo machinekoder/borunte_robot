@@ -61,8 +61,8 @@ def setup_hal():
     connect_hw_interface()
 
     # start the sim config "powered on"
-    if sim:
-        hal.Signal('power-on').set(True)
+    # if sim:
+    #    hal.Signal('state-cmd').set(1)
 
 
 install_rt_comps()

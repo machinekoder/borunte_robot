@@ -26,7 +26,7 @@ hal_io:
     digital_in_4:
       hal_type: BIT
     state_fb:
-      hal_type: BIT
+      hal_type: S32
   subscribe_pins:
     # subscribe_pins values from ROS topic copied to HAL output pin
     # valid keys:
@@ -44,10 +44,11 @@ hal_io:
       hal_type: BIT
       hal_dir: IO
     state_cmd:
-      hal_type: BIT
+      hal_type: U32
       hal_dir: IO
     reset:
       hal_type: BIT
+      hal_dir: IO
 # service_pins:
     # service_pins values from ROS service copied to HAL output pin
     #   and published topic
