@@ -21,6 +21,9 @@
 
   <include file="$(find ros_machinetalk)/launch/machinetalk_manager.launch"/>
 
+  <include file="$(find tag_tracking)/launch/elp_camera_cv_stream.launch" unless="$(arg sim)"/>
+  <include file="$(find tag_tracking)/launch/tracking.launch"/>
+
   <include file="$(find robot_ui)/launch/robot_ui_moveit.launch">
     <arg name="live_coding" value="$(arg live_coding)"/>
     <arg name="dev_mode" value="$(arg dev_mode)"/>

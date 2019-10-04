@@ -16,4 +16,6 @@
     <rosparam command="load" file="$(find borunte_support)/config/jog_arm_settings_gui.yaml" />
   </node>
 
+  <node pkg="robot_jog" type="jog_node" name="jog_node" required="true"/>
+
 </launch>
