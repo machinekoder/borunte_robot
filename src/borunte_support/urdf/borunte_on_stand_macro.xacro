@@ -3,7 +3,7 @@
 <xacro:macro name="borunte_on_stand_macro" params="prefix">
 
     <xacro:include filename="$(find borunte_support)/urdf/borunte_macro.xacro"/>
-    <xacro:borunte prefix="${prefix}" tool0_trans="0 0 0.15" tool0_rot="0 ${pi*1} 0"/>
+    <xacro:borunte prefix="${prefix}" tool0_trans="0 0 0.144" tool0_rot="0 ${pi*1} 0"/>
 
     <xacro:include filename="$(find borunte_support)/urdf/borunte_stand_macro.xacro"/>
     <xacro:borunte_stand prefix=""/>

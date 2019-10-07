@@ -217,7 +217,7 @@
             </collision>
         </link>
         <joint name="${prefix}joint_6-flange" type="fixed">
-                <origin xyz="0 0 0.02" rpy="0 0 0" />
+                <origin xyz="0 0 0.015" rpy="0 0 0" />
                 <parent link="${prefix}link_6" />
                 <child link="${prefix}flange" />
         </joint>
@@ -242,7 +242,7 @@
                 <parent link="${prefix}flange" />
                 <child link="${prefix}tool0" />
                 <axis xyz="0 0 1"/>
-                <origin xyz="0 0 0.0125" rpy="${pi} ${pi} ${pi/2.0}" />
+                <origin xyz="0 0 0.015" rpy="${pi} ${pi} ${pi/2.0}" />
         </joint>
 
         <link name="${prefix}tool0_tip" />
