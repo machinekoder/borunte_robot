@@ -5,3 +5,4 @@ user_config:
     continuous: false
     step_size: 0
   recent_paths: []
+  optional_stop: false
