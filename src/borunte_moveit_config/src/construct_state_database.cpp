@@ -82,7 +82,7 @@ int main(int argc, char **argv)
   ros::AsyncSpinner spinner(1);
   spinner.start();
 
-  unsigned int nstates = 1000;
+  unsigned int nstates = 1000; // TODO: check if sufficient
   unsigned int nedges = 0;
 
   if (argc > 1)
