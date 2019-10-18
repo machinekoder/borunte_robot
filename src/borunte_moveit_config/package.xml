@@ -15,7 +15,7 @@
   <url type="bugtracker">https://github.com/ros-planning/moveit_setup_assistant/issues</url>
   <url type="repository">https://github.com/ros-planning/moveit_setup_assistant</url>
 
-  <exec_depend>moveit_planners_ompl</exec_depend>
+  <exec_depend>moveit_ros_move_group</exec_depend>
   <exec_depend>moveit_ros_visualization</exec_depend>
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
@@ -23,10 +23,8 @@
   <build_depend>borunte_support</build_depend>
   <exec_depend>borunte_support</exec_depend>
 
-  <depend>moveit_ros_move_group</depend>
   <depend>moveit_ros_planning_interface</depend>
-  <depend>cmake_modules</depend>
-  <depend>geometry_msgs</depend>
+  <depend>moveit_planners_ompl</depend>
   <depend>roscpp</depend>
   <depend>rosparam_shortcuts</depend>
   <depend>std_msgs</depend>

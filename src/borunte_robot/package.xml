@@ -3,8 +3,8 @@
   <name>borunte_robot</name>
   <version>1.0.0</version>
   <description>
-    borunte_robot metapackage for all of the packages required
-    to work with the Borunte BRTIRUS0805A with Machinekit.
+    borunte_robot meta-package for all of the ROS packages required
+    to work with the Borunte BRTIRUS0805A and Machinekit.
   </description>
 
   <maintainer email="alex@machinekoder.com">Alexander Rössler</maintainer>
