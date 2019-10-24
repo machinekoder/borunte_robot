@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="borunte_macro" params="prefix tool0_trans tool0_rot">
+  <xacro:macro name="borunte_macro" params="prefix">
     <material name="Black">
       <color rgba="0.1 0.1 0.1 1.0"/>
     </material>
@@ -209,15 +209,6 @@
       <origin xyz="0 0 0.015" rpy="0 0 0" />
       <parent link="${prefix}link_6" />
       <child link="${prefix}flange" />
-    </joint>
-
-    <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
-    <link name="${prefix}tool0" />
-    <joint name="${prefix}flange-tool0" type="fixed">
-      <!-- marker -->
-      <origin xyz="${tool0_trans}" rpy="${tool0_rot}" />
-      <parent link="${prefix}flange" />
-      <child link="${prefix}tool0" />
     </joint>
 
   </xacro:macro>
