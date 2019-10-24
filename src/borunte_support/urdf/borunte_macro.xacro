@@ -220,12 +220,5 @@
       <child link="${prefix}tool0" />
     </joint>
 
-    <link name="${prefix}tool0_tip" />
-    <joint name="${prefix}tool0-tool0_tip" type="fixed">
-      <parent link="${prefix}tool0" />
-      <child link="${prefix}tool0_tip" />
-      <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint>
-
   </xacro:macro>
 </robot>

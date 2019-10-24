@@ -16,7 +16,7 @@ const std::string &name, const tf2::Quaternion &orientation, double x, double y,
   //orientation.setRPY(-boost::math::constants::pi<double>() / 2.0, 0, 0);
 
   moveit_msgs::OrientationConstraint ocm;
-  ocm.link_name = "tool0_tip";
+  ocm.link_name = "tool0";
   ocm.header.frame_id = "borunte_stand_link";
   ocm.orientation.x = orientation.x();
   ocm.orientation.y = orientation.y();

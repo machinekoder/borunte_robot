@@ -39,11 +39,14 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: borunte_stand_link
       Value: true
-    - Class: moveit_rviz_plugin/MotionPlanning
+    - Acceleration_Scaling_Factor: 1
+      Class: moveit_rviz_plugin/MotionPlanning
       Enabled: true
       Move Group Namespace: ""
       MoveIt_Allow_Approximate_IK: false
       MoveIt_Allow_External_Program: false
+      MoveIt_Allow_Replanning: false
+      MoveIt_Allow_Sensor_Positioning: false
       MoveIt_Goal_Tolerance: 0
       MoveIt_Planning_Attempts: 10
       MoveIt_Planning_Time: 5
@@ -78,6 +81,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          borunte_robotiq_adapter:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           borunte_stand_flange:
             Alpha: 1
             Show Axes: false
@@ -95,7 +103,6 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
           link_1:
             Alpha: 1
             Show Axes: false
@@ -126,12 +133,22 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          tool0:
+          robotiq_hand_e:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          tool0_tip:
+          simple_grip_finger_left:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          simple_grip_finger_right:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tool0:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -189,6 +206,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          borunte_robotiq_adapter:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           borunte_stand_flange:
             Alpha: 1
             Show Axes: false
@@ -206,7 +228,6 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
           link_1:
             Alpha: 1
             Show Axes: false
@@ -237,12 +258,22 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          tool0:
+          robotiq_hand_e:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          tool0_tip:
+          simple_grip_finger_left:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          simple_grip_finger_right:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tool0:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -250,6 +281,7 @@ Visualization Manager:
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
+      Velocity_Scaling_Factor: 1
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
@@ -258,6 +290,8 @@ Visualization Manager:
         base:
           Value: true
         base_link:
+          Value: true
+        borunte_robotiq_adapter:
           Value: true
         borunte_stand_flange:
           Value: true
@@ -279,15 +313,19 @@ Visualization Manager:
           Value: true
         link_6:
           Value: true
+        robotiq_hand_e:
+          Value: true
+        simple_grip_finger_left:
+          Value: true
+        simple_grip_finger_right:
+          Value: true
         tool0:
           Value: true
-        tool0_tip:
-          Value: true
-      Marker Scale: 0.5
+      Marker Scale: 0.10000000149011612
       Name: TF
       Show Arrows: true
       Show Axes: true
-      Show Names: false
+      Show Names: true
       Tree:
         borunte_stand_link:
           borunte_stand_flange:
@@ -301,11 +339,16 @@ Visualization Manager:
                       link_5:
                         link_6:
                           flange:
-                            camera_link:
-                              {}
-                            tool0:
-                              tool0_tip:
+                            borunte_robotiq_adapter:
+                              camera_link:
                                 {}
+                              robotiq_hand_e:
+                                simple_grip_finger_left:
+                                  {}
+                                simple_grip_finger_right:
+                                  {}
+                            tool0:
+                              {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -324,7 +367,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.332038402557373
+      Distance: 2.226698398590088
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -339,10 +382,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6547950506210327
+      Pitch: 0.6797950267791748
       Target Frame: base_link
       Value: XYOrbit (rviz)
-      Yaw: 1.6517603397369385
+      Yaw: 1.2767606973648071
     Saved: ~
 Window Geometry:
   Displays:
@@ -360,5 +403,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1912
-  X: 0
-  Y: 0
+  X: 1227
+  Y: 329
