@@ -226,16 +226,16 @@
         <link name="${prefix}tool0">
             <visual>
                     <geometry>
-                        <mesh filename="package://borunte_support/meshes/robotiq_gripper.stl"/>
+                        <mesh filename="package://borunte_support/meshes/robotiq_hand-e_gripper.stl"/>
                     </geometry>
-                    <origin rpy="0 0 0.0" xyz="0 0 0"/>
+                    <origin xyz="0 0 -0.005" rpy="0 0 0"/>
                     <material name="Black"/>
             </visual>
             <collision>
                     <geometry>
-                            <mesh filename="package://borunte_support/meshes/robotiq_gripper_collision.stl"/>
+                            <mesh filename="package://borunte_support/meshes/robotiq_hand-e_gripper_collision.stl"/>
                     </geometry>
-                    <origin rpy="0 0 0.0" xyz="0 0 0"/>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
         </link>
         <joint name="${prefix}flange-tool0" type="fixed">
@@ -243,6 +243,50 @@
                 <child link="${prefix}tool0" />
                 <axis xyz="0 0 1"/>
                 <origin xyz="0 0 0.015" rpy="${pi} ${pi} ${pi/2.0}" />
+        </joint>
+
+        <link name="${prefix}tool0_finger_left">
+            <visual>
+                    <geometry>
+                        <mesh filename="package://borunte_support/meshes/simple_grip_finger.stl"/>
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <material name="Black"/>
+            </visual>
+            <collision>
+                    <geometry>
+                            <mesh filename="package://borunte_support/meshes/simple_grip_finger_collision.stl"/>
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="0 0 0.0"/>
+            </collision>
+        </link>
+        <joint name="${prefix}tool0-tool0_finger_left" type="fixed">
+                <parent link="${prefix}tool0" />
+                <child link="${prefix}tool0_finger_left" />
+                <axis xyz="0 0 1"/>
+                <origin xyz="0 0 0.095" rpy="0 0 ${pi/2.0}" />
+        </joint>
+
+        <link name="${prefix}tool0_finger_right">
+            <visual>
+                    <geometry>
+                        <mesh filename="package://borunte_support/meshes/simple_grip_finger.stl"/>
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <material name="Black"/>
+            </visual>
+            <collision>
+                    <geometry>
+                            <mesh filename="package://borunte_support/meshes/simple_grip_finger_collision.stl"/>
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="0 0 0.0"/>
+            </collision>
+        </link>
+        <joint name="${prefix}tool0-tool0_finger_right" type="fixed">
+                <parent link="${prefix}tool0" />
+                <child link="${prefix}tool0_finger_right" />
+                <axis xyz="0 0 1"/>
+                <origin xyz="0 0 0.095" rpy="0 0 -${pi/2.0}" />
         </joint>
 
         <link name="${prefix}tool0_tip" />

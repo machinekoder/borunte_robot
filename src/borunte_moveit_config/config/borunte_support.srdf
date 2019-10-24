@@ -41,4 +41,7 @@
     <disable_collisions link1="link_5" link2="link_6" reason="Adjacent" />
     <disable_collisions link1="link_6" link2="flange" reason="Adjacent" />
     <disable_collisions link1="flange" link2="tool0" reason="Adjacent" />
+    <disable_collisions link1="tool0" link2="tool0_finger_right" reason="Adjacent" />
+    <disable_collisions link1="tool0" link2="tool0_finger_left" reason="Adjacent" />
+    <disable_collisions link1="tool0_finger_left" link2="tool0_finger_right" reason="Adjacent" />
 </robot>
