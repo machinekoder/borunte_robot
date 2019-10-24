@@ -6,7 +6,7 @@
   <arg name="robot_description" default="robot_description"/>
 
   <!-- argument containing tool on end effector -->
-  <arg name="tool" default="none"/>
+  <arg name="tool"/>
 
   <!-- Load universal robot description format (URDF) -->
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro --inorder '$(find borunte_support)/urdf/borunte_on_stand.xacro' tool:=$(arg tool)"/>

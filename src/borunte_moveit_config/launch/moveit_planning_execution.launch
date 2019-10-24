@@ -6,7 +6,7 @@
   <!-- - Output HAL debug messages to screen (console) -->
   <arg name="hal_debug_output" default="false"/>
   <!-- - Set HAL debug level, 0-5 -->
-  <arg name="hal_debug_level" default="1"/>
+  <arg name="hal_debug_level"/>
 
   <!-- Non-standard joint names:
        - Create a file [robot_moveit_config]/config/joint_names.yaml
@@ -25,13 +25,13 @@
       />
 
   <!-- the "rviz" argument controls whether we start an RViz instance or not -->
-  <arg name="rviz" default="true"/>
+  <arg name="rviz"/>
 
-  <arg name="tool" default="none" />
+  <arg name="tool"/>
   <!-- load the robot_description parameter before launching ROS-I nodes -->
-  <include file="$(find borunte_moveit_config)/launch/planning_context.launch" >
-    <arg name="load_robot_description" value="true" />
+  <include file="$(find borunte_moveit_config)/launch/planning_context.launch">
     <arg name="tool" value="$(arg tool)" />
+    <arg name="load_robot_description" value="true" />
   </include>
 
   <!-- load the parameter persistence server -->

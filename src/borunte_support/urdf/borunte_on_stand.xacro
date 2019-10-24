@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
 <robot name="borunte_on_stand" xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<xacro:include filename="$(find borunte_support)/urdf/borunte_on_stand_macro.xacro"/>
-	<xacro:borunte_on_stand_macro prefix=""/>
+	<xacro:borunte_on_stand_macro robotprefix="" standprefix="" tool="$(arg tool)"/>
 </robot>

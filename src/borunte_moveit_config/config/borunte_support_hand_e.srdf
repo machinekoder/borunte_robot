@@ -39,4 +39,14 @@
     <disable_collisions link1="link_4" link2="link_5" reason="Adjacent" />
     <disable_collisions link1="link_4" link2="link_6" reason="Never" />
     <disable_collisions link1="link_5" link2="link_6" reason="Adjacent" />
+    <disable_collisions link1="link_6" link2="borunte_robotiq_adapter" reason="Adjacent" />
+    <disable_collisions link1="borunte_robotiq_adapter" link2="robotiq_hand_e" reason="Adjacent" />
+    <disable_collisions link1="robotiq_hand_e" link2="simple_grip_finger_right" reason="Adjacent" />
+    <disable_collisions link1="robotiq_hand_e" link2="simple_grip_finger_left" reason="Adjacent" />
+    <disable_collisions link1="simple_grip_finger_left" link2="simple_grip_finger_right" reason="Adjacent" />
+    <disable_collisions link1="link_6" link2="borunte_robotiq_adapter" reason="Adjacent" />
+    <disable_collisions link1="borunte_robotiq_adapter" link2="robotiq_hand_e" reason="Adjacent" />
+    <disable_collisions link1="robotiq_hand_e" link2="simple_grip_finger_right" reason="Adjacent" />
+    <disable_collisions link1="robotiq_hand_e" link2="simple_grip_finger_left" reason="Adjacent" />
+    <disable_collisions link1="simple_grip_finger_left" link2="simple_grip_finger_right" reason="Adjacent" />
 </robot>
