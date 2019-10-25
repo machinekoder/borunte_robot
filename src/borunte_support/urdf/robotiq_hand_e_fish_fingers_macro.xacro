@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="robotiq_hand_e_macro" params="prefix">
+
+    <xacro:include filename="$(find borunte_support)/urdf/robotiq_hand_e_base_macro.xacro"/>
+    <xacro:robotiq_hand_e_base_macro prefix="${prefix}"/>
+
+    <material name="Blue_Rubber">
+      <color rgba="0.1 0.1 1.0 1.0"/>
+    </material>
+
+    <link name="${prefix}fish_finger_adapter_left">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/fish_finger_adapter_left.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <material name="Black_Aluminum"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/fish_finger_adapter_left_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0.0"/>
+      </collision>
+    </link>
+    <joint name="${prefix}robotiq_hand_e-fish_finger_adapter_left" type="fixed">
+      <parent link="${prefix}robotiq_hand_e" />
+      <child link="${prefix}fish_finger_adapter_left" />
+      <axis xyz="0 0 1"/>
+      <origin xyz="0 0 0.095" rpy="0 0 ${pi/2.0}" />
+    </joint>
+
+    <link name="${prefix}fish_finger_adapter_right">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/fish_finger_adapter_right.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+        <material name="Black_Aluminum"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/fish_finger_adapter_right_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+      </collision>
+    </link>
+    <joint name="${prefix}robotiq_hand_e-fish_finger_adapter_right" type="fixed">
+      <parent link="${prefix}robotiq_hand_e" />
+      <child link="${prefix}fish_finger_adapter_right" />
+      <axis xyz="0 0 1"/>
+      <origin xyz="0 0 0.095" rpy="0 0 -${pi/2.0}" />
+    </joint>
+
+    <link name="${prefix}simple_grip_finger_left">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/simple_grip_finger.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <material name="Black_Aluminum"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/simple_grip_finger_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0.0"/>
+      </collision>
+    </link>
+    <joint name="${prefix}robotiq_hand_e-simple_grip_finger_left" type="fixed">
+      <parent link="${prefix}fish_finger_adapter_left" />
+      <child link="${prefix}simple_grip_finger_left" />
+      <axis xyz="0 0 1"/>
+      <origin xyz="0.014293 0.0005 0.014707" rpy="0 ${pi/4.0} 0" />
+    </joint>
+
+    <link name="${prefix}fish_finger_left">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/fish_finger.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <material name="Blue_Rubber"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/fish_finger_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0.0"/>
+      </collision>
+    </link>
+    <joint name="${prefix}fish_finger_adapter_left-fish_finger_left" type="fixed">
+      <parent link="${prefix}fish_finger_adapter_left" />
+      <child link="${prefix}fish_finger_left" />
+      <axis xyz="0 0 1"/>
+      <origin xyz="-0.015 -0.026 0.014" rpy="0 ${pi/4.0} ${pi}" />
+    </joint>
+
+    <link name="${prefix}simple_grip_finger_right">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/simple_grip_finger.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <material name="Black_Aluminum"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/simple_grip_finger_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0.0"/>
+      </collision>
+    </link>
+    <joint name="${prefix}fish_finger_adapter_right-simple_grip_finger_right" type="fixed">
+      <parent link="${prefix}fish_finger_adapter_right" />
+      <child link="${prefix}simple_grip_finger_right" />
+      <axis xyz="0 0 1"/>
+      <origin xyz="-0.014293 0.0005 0.014707" rpy="0 -${pi/4.0} 0" />
+    </joint>
+
+        <link name="${prefix}fish_finger_right">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/fish_finger.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <material name="Blue_Rubber"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/fish_finger_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0.0"/>
+      </collision>
+    </link>
+    <joint name="${prefix}fish_finger_adapter_right-fish_finger_right" type="fixed">
+      <parent link="${prefix}fish_finger_adapter_right" />
+      <child link="${prefix}fish_finger_right" />
+      <axis xyz="0 0 1"/>
+      <origin xyz="0.015 -0.026 0.014" rpy="0 -${pi/4.0} ${pi}" />
+    </joint>
+
+  </xacro:macro>
+</robot>

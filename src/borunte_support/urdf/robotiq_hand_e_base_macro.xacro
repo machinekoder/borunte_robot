@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="robotiq_hand_e_base_macro" params="prefix">
+
+    <material name="Black_Aluminum">
+      <color rgba="0.1 0.1 0.1 1.0"/>
+    </material>
+
+    <material name="White_Plastic">
+      <color rgba="0.9 0.9 0.9 1.0"/>
+    </material>
+
+      <link name="${prefix}borunte_robotiq_adapter">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/robotiq_adapter.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <material name="White_Plastic"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/robotiq_adapter_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </collision>
+    </link>
+
+    <link name="${prefix}robotiq_hand_e">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/robotiq_hand-e_gripper.stl"/>
+        </geometry>
+        <origin xyz="0 0 -0.005" rpy="0 0 0"/>
+        <material name="Black_Aluminum"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/robotiq_hand-e_gripper_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </collision>
+    </link>
+    <joint name="${prefix}borunte_robotiq_adapter-robotiq_hand_e" type="fixed">
+      <parent link="${prefix}borunte_robotiq_adapter" />
+      <child link="${prefix}robotiq_hand_e" />
+      <axis xyz="0 0 1"/>
+      <origin xyz="0 0 0.015" rpy="${pi} ${pi} ${pi/2.0}" />
+    </joint>
+
+        <!-- Camera frame: location of wrist camera -->
+    <link name="${prefix}camera_link" />
+    <joint name="${prefix}borunte_robotiq_adapter-camera_link" type="fixed">
+      <origin xyz="0.06 0 0.03" rpy="0 0 ${pi/2.0}" />
+      <parent link="${prefix}borunte_robotiq_adapter" />
+      <child link="${prefix}camera_link" />
+    </joint>
+
+    </xacro:macro>
+</robot>

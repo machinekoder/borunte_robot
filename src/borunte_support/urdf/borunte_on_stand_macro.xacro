@@ -12,6 +12,11 @@
       <xacro:borunte_hand_e_macro prefix="${robotprefix}"/>
     </xacro:if>
 
+    <xacro:if value="${tool == 'hand_e_fish_fingers'}">
+      <xacro:include filename="$(find borunte_support)/urdf/borunte_hand_e_fish_fingers_macro.xacro"/>
+      <xacro:borunte_hand_e_macro prefix="${robotprefix}"/>
+    </xacro:if>
+
     <xacro:include filename="$(find borunte_support)/urdf/borunte_stand_macro.xacro"/>
     <xacro:borunte_stand_macro prefix="${standprefix}"/>
 

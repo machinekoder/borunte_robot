@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="borunte_hand_e_macro" params="prefix">
+
+    <xacro:include filename="$(find borunte_support)/urdf/borunte_macro.xacro"/>
+    <xacro:borunte_macro prefix="${prefix}"/>
+
+    <xacro:include filename="$(find borunte_support)/urdf/robotiq_hand_e_fish_fingers_macro.xacro"/>
+    <xacro:robotiq_hand_e_macro prefix=""/>
+
+    <!-- attach hand_e to eef -->
+    <!-- tool0 flange is set to correct dimensions in the robotiq_hand_e_macro.xacro -->
+    <!-- this assures that planning is done from the perspective of the fingers -->
+    <joint name="${prefix}flange-borunte_robotiq_adapter" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}flange" />
+      <child link="${prefix}borunte_robotiq_adapter" />
+    </joint>
+
+    <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
+    <link name="${prefix}tool0" />
+    <joint name="${prefix}flange-tool0" type="fixed">
+      <!-- marker -->
+      <origin xyz="0.0468199 0.0 0.157234" rpy="0 ${pi*5/4} 0" />
+      <parent link="${prefix}flange" />
+      <child link="${prefix}tool0" />
+    </joint>
+
+    <!-- ROS-Industrial 'tool1' frame: all-zeros tool frame -->
+    <link name="${prefix}tool1" />
+    <joint name="${prefix}flange-tool1" type="fixed">
+      <!-- marker -->
+      <origin xyz="-0.119652 0.0 0.228652" rpy="0 ${pi*3/4} 0" />
+      <parent link="${prefix}flange" />
+      <child link="${prefix}tool1" />
+    </joint>
+
+  </xacro:macro>
+</robot>
