@@ -21,7 +21,7 @@
     <link name="${prefix}tool0" />
     <joint name="${prefix}flange-tool0" type="fixed">
       <!-- marker -->
-      <origin xyz="0.0468199 0.0 0.157234" rpy="0 ${pi*5/4} 0" />
+      <origin xyz="0.0468199 0.0 0.158734" rpy="0 ${pi*5/4} 0" />
       <parent link="${prefix}flange" />
       <child link="${prefix}tool0" />
     </joint>
@@ -30,7 +30,7 @@
     <link name="${prefix}tool1" />
     <joint name="${prefix}flange-tool1" type="fixed">
       <!-- marker -->
-      <origin xyz="-0.119652 0.0 0.228652" rpy="0 ${pi*3/4} 0" />
+      <origin xyz="-0.119652 0.0 0.230152" rpy="0 ${pi*3/4} 0" />
       <parent link="${prefix}flange" />
       <child link="${prefix}tool1" />
     </joint>

@@ -21,7 +21,7 @@
     <link name="${prefix}tool0" />
     <joint name="${prefix}flange-tool0" type="fixed">
       <!-- marker -->
-      <origin xyz="0 0 0.159" rpy="0 ${pi*1} 0" />
+      <origin xyz="0 0 0.1605" rpy="0 ${pi*1} 0" />
       <parent link="${prefix}flange" />
       <child link="${prefix}tool0" />
     </joint>

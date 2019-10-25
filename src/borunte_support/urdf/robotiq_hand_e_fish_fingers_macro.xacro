@@ -28,7 +28,7 @@
       <parent link="${prefix}robotiq_hand_e" />
       <child link="${prefix}fish_finger_adapter_left" />
       <axis xyz="0 0 1"/>
-      <origin xyz="0 0 0.095" rpy="0 0 ${pi/2.0}" />
+      <origin xyz="0 0 0.0965" rpy="0 0 ${pi/2.0}" />
     </joint>
 
     <link name="${prefix}fish_finger_adapter_right">
@@ -50,7 +50,7 @@
       <parent link="${prefix}robotiq_hand_e" />
       <child link="${prefix}fish_finger_adapter_right" />
       <axis xyz="0 0 1"/>
-      <origin xyz="0 0 0.095" rpy="0 0 -${pi/2.0}" />
+      <origin xyz="0 0 0.0965" rpy="0 0 -${pi/2.0}" />
     </joint>
 
     <link name="${prefix}simple_grip_finger_left">
