@@ -1,7 +1,5 @@
-# From `wstool_update`
-/src/borunte_hal/
-/src/hal_ros_control/
-/src/ros_control_boilerplate/
+# constraints database
+src/borunte_moveit_config/config/constraints_approximation_database/
 
 # From `catkin build` or 'catkin_make_isolated'
 /.catkin_tools/
@@ -32,6 +30,7 @@ core
 .idea
 .vscode
 *.user
+*~
 
 # Machinekit
 autosave.halscope
