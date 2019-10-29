@@ -1,7 +1,3 @@
 io:
-  digital_in_names:
-    gripper_fb: 1
-    camera_light_fb: 2
-  digital_out_names:
-    gripper: 1
-    camera_light: 2
+  digital_in_names: {}
+  digital_out_names: {}
