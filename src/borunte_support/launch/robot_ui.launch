@@ -2,7 +2,7 @@
   <!-- pass arguments to other launch files-->
   <arg name="live_coding" default="false"/>
   <arg name="dev_mode" default="false"/>
-  <arg name="tool" default="none"/>
+  <arg name="tool" default="hand_e"/>
   <arg name="sim" default="$(eval optenv('HAVE_REAL_HARDWARE', 'false') == 'false')"/>
   <arg name="hal_debug_level" default="1"/>
 
