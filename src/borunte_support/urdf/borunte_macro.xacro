@@ -24,6 +24,7 @@
         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
       </collision>
     </link>
+
     <link name="${prefix}link_1">
       <visual>
         <geometry>
@@ -69,21 +70,20 @@
         <geometry>
           <mesh filename="package://borunte_support/meshes/link_3.stl"/>
         </geometry>
-        <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
+        <origin rpy="0.0 0 0.0" xyz="0 0.01 0"/>
         <material name="DarkRed"/>
       </visual>
       <collision>
         <geometry>
           <mesh filename="package://borunte_support/meshes/link_3_collision.stl"/>
         </geometry>
-        <origin rpy="0.0 0 0.0" xyz="-0 0 0"/>
+        <origin rpy="0.0 0 0.0" xyz="0 0.01 0"/>
       </collision>
       <inertial>
         <mass value="100"/>
         <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       </inertial>
     </link>
-
 
     <link name="${prefix}link_4">
       <visual>
@@ -159,7 +159,7 @@
       <parent link="link_1"/>
       <child link="link_2"/>
       <axis xyz="0 1 0"/>
-      <origin rpy="0.0 0.0 0.0" xyz="0.07 0.08 0.165"/>
+      <origin rpy="0.0 0.0 0.0" xyz="0.07 0.09 0.165"/>
     </joint>
 
     <joint name="${prefix}joint_3" type="revolute">
@@ -175,8 +175,9 @@
       <parent link="link_3"/>
       <child link="link_4"/>
       <axis xyz="0 0 1"/>
-      <origin rpy="0.0 0.0 0.0" xyz="-0.125 -0.1 0.095"/>
+      <origin rpy="0.0 0.0 0.0" xyz="-0.125 -0.09 0.075"/>
     </joint>
+
     <joint name="${prefix}joint_5" type="revolute">
       <limit effort="1000.0" lower="-1.919" upper="2.094" velocity="2.35"/>
       <parent link="link_4"/>
@@ -190,7 +191,7 @@
       <parent link="link_5"/>
       <child link="link_6"/>
       <axis xyz="0 0 1"/>
-      <origin rpy="0.0 0.0 0.0" xyz="0 0 0.089"/>
+      <origin rpy="0.0 0.0 0.0" xyz="0 0 0.104"/>
     </joint>
 
 
