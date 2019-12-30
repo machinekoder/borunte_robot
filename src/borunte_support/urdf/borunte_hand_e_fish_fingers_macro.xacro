@@ -21,18 +21,25 @@
     <link name="${prefix}tool0" />
     <joint name="${prefix}flange-tool0" type="fixed">
       <!-- marker -->
-      <origin xyz="0.0468199 0.0 0.158734" rpy="0 ${pi*5/4} 0" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 ${pi*1} 0" />
       <parent link="${prefix}flange" />
       <child link="${prefix}tool0" />
     </joint>
 
-    <!-- ROS-Industrial 'tool1' frame: all-zeros tool frame -->
-    <link name="${prefix}tool1" />
-    <joint name="${prefix}flange-tool1" type="fixed">
+    <link name="${prefix}eef_tcp_simple_grip" />
+    <joint name="${prefix}flange-eef_tcp_simple_grip" type="fixed">
+      <!-- marker -->
+      <origin xyz="0.0468199 0.0 0.158734" rpy="0 ${pi*5/4} 0" />
+      <parent link="${prefix}flange" />
+      <child link="${prefix}eef_tcp_simple_grip" />
+    </joint>
+
+    <link name="${prefix}eef_tcp_fish_grip" />
+    <joint name="${prefix}flange-eef_tcp_fish_grip" type="fixed">
       <!-- marker -->
       <origin xyz="-0.119652 0.0 0.230152" rpy="0 ${pi*3/4} 0" />
       <parent link="${prefix}flange" />
-      <child link="${prefix}tool1" />
+      <child link="${prefix}eef_tcp_fish_grip" />
     </joint>
 
   </xacro:macro>
