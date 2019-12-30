@@ -15,6 +15,7 @@
   <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support.srdf" if="$(eval tool == 'none')"/>
   <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support_hand_e.srdf" if="$(eval tool == 'hand_e')"/>
   <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support_hand_e_fish_fingers.srdf" if="$(eval tool == 'hand_e_fish_fingers')"/>
+  <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support_ezgripper_gen2_plus.srdf" if="$(eval tool == 'ezgripper_gen2_plus')"/>
 
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">

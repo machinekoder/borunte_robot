@@ -17,6 +17,11 @@
       <xacro:borunte_hand_e_macro prefix="${robotprefix}"/>
     </xacro:if>
 
+    <xacro:if value="${tool == 'ezgripper_gen2_plus'}">
+      <xacro:include filename="$(find borunte_support)/urdf/borunte_ezgripper_gen2_plus_macro.xacro"/>
+      <xacro:ezgripper_gen2_plus_macro prefix="${robotprefix}"/>
+    </xacro:if>
+
     <xacro:include filename="$(find borunte_support)/urdf/borunte_stand_macro.xacro"/>
     <xacro:borunte_stand_macro prefix="${standprefix}"/>
 

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="ezgripper_gen2_plus_macro" params="prefix">
+    <xacro:include filename="$(find borunte_support)/urdf/borunte_macro.xacro"/>
+    <xacro:borunte_macro prefix="${prefix}"/>
+
+    <xacro:include filename="$(find ezgripper_driver)/urdf/ezgripper_dual_gen2_plus_articulated.urdf.xacro"/>
+    <!-- Add the gripper -->
+    <ezgripper_dual prefix="main" parent_link="${prefix}borunte_ezgripper_adapter">
+
+      <origin xyz="0 0 0.012" rpy="${pi} ${-pi/2.0} 0.0"/>
+    </ezgripper_dual>
+
+    <material name="Black_Plastic">
+      <color rgba="0.1 0.1 0.1 1.0"/>
+    </material>
+
+    <link name="${prefix}borunte_ezgripper_adapter">
+      <visual>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/borunte_ezgripper_adapter.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <material name="Black_Plastic"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://borunte_support/meshes/borunte_ezgripper_adapter_collision.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </collision>
+    </link>
+
+    <!-- Camera frame: location of wrist camera -->
+    <link name="${prefix}camera_link" />
+    <joint name="${prefix}borunte_ezgripper_adapter-camera_link" type="fixed">
+      <origin xyz="0.06 0 0.03" rpy="0 0 ${pi/2.0}" />
+      <parent link="${prefix}borunte_ezgripper_adapter" />
+      <child link="${prefix}camera_link" />
+    </joint>
+
+    <!-- attach hand_e to eef -->
+    <!-- tool0 flange is set to correct dimensions in the robotiq_hand_e_macro.xacro -->
+    <!-- this assures that planning is done from the perspective of the fingers -->
+    <joint name="${prefix}flange-borunte_ezgripper_adapter" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}flange" />
+      <child link="${prefix}borunte_ezgripper_adapter" />
+    </joint>
+
+    <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
+    <link name="${prefix}tool0" />
+    <joint name="${prefix}flange-tool0" type="fixed">
+      <!-- marker -->
+      <origin xyz="0 0 0.183" rpy="0 ${pi*1} ${-pi/2.0}" />
+      <parent link="${prefix}flange" />
+      <child link="${prefix}tool0" />
+    </joint>
+
+  </xacro:macro>
+</robot>
