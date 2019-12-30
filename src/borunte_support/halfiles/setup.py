@@ -47,9 +47,12 @@ def connect_hw_interface():
 
 
 def setup_hal():
-    sim = rospy.get_param('/sim_mode', True)
-    if sim:
+    sim_mode = rospy.get_param('/hal_hardware/sim_mode', True)
+    tool = rospy.get_param('/hal_hardware/tool', 'none')
+    rospy.loginfo('tool {}'.format(tool))
+    if sim_mode:
         os.environ['SIM_MODE'] = '1'
+    os.environ['ROBOT_TOOL'] = tool
 
     from borunte_hal.robot import setup_thread, configure_hal
 

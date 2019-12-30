@@ -36,9 +36,8 @@ def setup_robot_control_pins():
 
 
 def setup_pins():
-    sim = rospy.get_param('/sim_mode', True)
-    setup_gripper_pins()
-    if sim:
+    sim_mode = rospy.get_param('/hal_hardware/sim_mode', True)
+    if sim_mode:
         setup_sim_pins()
     setup_robot_control_pins()
 

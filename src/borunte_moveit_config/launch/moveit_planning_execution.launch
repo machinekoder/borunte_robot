@@ -52,6 +52,7 @@
       <arg name="hal_debug_output" value="$(arg hal_debug_output)"/>
       <arg name="hal_debug_level" value="$(arg hal_debug_level)"/>
       <arg name="sim" value="$(arg sim)"/>
+      <arg name="tool" value="$(arg tool)" />
     </include>
     <!--<include file="$(find borunte_support)/launch/borunte_interface.launch"/>-->
     <!--<include file="$(find [robot_interface_pkg])/launch/robot_interface.launch" >
