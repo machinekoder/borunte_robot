@@ -9,6 +9,7 @@ Panels:
         - /MotionPlanning1
         - /MotionPlanning1/Planning Request1
         - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.7425600290298462
     Tree Height: 448
   - Class: rviz/Help
@@ -81,7 +82,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          borunte_robotiq_adapter:
+          borunte_ezgripper_adapter:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -133,17 +134,37 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          robotiq_hand_e:
+          main_ezgripper_finger_L1_1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          simple_grip_finger_left:
+          main_ezgripper_finger_L1_2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          simple_grip_finger_right:
+          main_ezgripper_finger_L2_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          main_ezgripper_finger_L2_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          main_ezgripper_finger_L2_pad_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          main_ezgripper_finger_L2_pad_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          main_ezgripper_palm_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -172,7 +193,7 @@ Visualization Manager:
         Colliding Link Color: 255; 0; 0
         Goal State Alpha: 0.5
         Goal State Color: 250; 128; 0
-        Interactive Marker Size: 0.15000000596046448
+        Interactive Marker Size: 0.05000000074505806
         Joint Violation Color: 255; 0; 255
         Planning Group: manipulator
         Query Goal State: true
@@ -206,7 +227,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          borunte_robotiq_adapter:
+          borunte_ezgripper_adapter:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -258,17 +279,37 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          robotiq_hand_e:
+          main_ezgripper_finger_L1_1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          simple_grip_finger_left:
+          main_ezgripper_finger_L1_2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          simple_grip_finger_right:
+          main_ezgripper_finger_L2_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          main_ezgripper_finger_L2_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          main_ezgripper_finger_L2_pad_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          main_ezgripper_finger_L2_pad_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          main_ezgripper_palm_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -286,39 +327,47 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         base:
-          Value: true
+          Value: false
         base_link:
-          Value: true
-        borunte_robotiq_adapter:
-          Value: true
+          Value: false
+        borunte_ezgripper_adapter:
+          Value: false
         borunte_stand_flange:
-          Value: true
+          Value: false
         borunte_stand_link:
-          Value: true
+          Value: false
         camera_link:
-          Value: true
+          Value: false
         flange:
-          Value: true
+          Value: false
         link_1:
-          Value: true
+          Value: false
         link_2:
-          Value: true
+          Value: false
         link_3:
-          Value: true
+          Value: false
         link_4:
-          Value: true
+          Value: false
         link_5:
-          Value: true
+          Value: false
         link_6:
-          Value: true
-        robotiq_hand_e:
-          Value: true
-        simple_grip_finger_left:
-          Value: true
-        simple_grip_finger_right:
-          Value: true
+          Value: false
+        main_ezgripper_finger_L1_1:
+          Value: false
+        main_ezgripper_finger_L1_2:
+          Value: false
+        main_ezgripper_finger_L2_1:
+          Value: false
+        main_ezgripper_finger_L2_2:
+          Value: false
+        main_ezgripper_finger_L2_pad_1:
+          Value: false
+        main_ezgripper_finger_L2_pad_2:
+          Value: false
+        main_ezgripper_palm_link:
+          Value: false
         tool0:
           Value: true
       Marker Scale: 0.10000000149011612
@@ -339,14 +388,18 @@ Visualization Manager:
                       link_5:
                         link_6:
                           flange:
-                            borunte_robotiq_adapter:
+                            borunte_ezgripper_adapter:
                               camera_link:
                                 {}
-                              robotiq_hand_e:
-                                simple_grip_finger_left:
-                                  {}
-                                simple_grip_finger_right:
-                                  {}
+                              main_ezgripper_palm_link:
+                                main_ezgripper_finger_L1_1:
+                                  main_ezgripper_finger_L2_1:
+                                    main_ezgripper_finger_L2_pad_1:
+                                      {}
+                                main_ezgripper_finger_L1_2:
+                                  main_ezgripper_finger_L2_2:
+                                    main_ezgripper_finger_L2_pad_2:
+                                      {}
                             tool0:
                               {}
       Update Interval: 0
@@ -367,7 +420,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.226698398590088
+      Distance: 1.8174865245819092
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -382,10 +435,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6797950267791748
+      Pitch: 0.5647951364517212
       Target Frame: base_link
       Value: XYOrbit (rviz)
-      Yaw: 1.2767606973648071
+      Yaw: 1.2867604494094849
     Saved: ~
 Window Geometry:
   Displays:
