@@ -53,4 +53,13 @@
   <disable_collisions link1="main_ezgripper_finger_L1_2" link2="main_ezgripper_finger_L2_2" reason="Adjacent" />
   <disable_collisions link1="main_ezgripper_finger_L1_2" link2="main_ezgripper_finger_L2_pad_2" reason="Never" />
   <disable_collisions link1="main_ezgripper_finger_L2_2" link2="main_ezgripper_finger_L2_pad_2" reason="Adjacent" />
+  <disable_collisions link1="main_ezgripper_finger_L2_pad_1" link2="main_ezgripper_finger_L2_pad_2" reason="Never" />
+  <disable_collisions link1="main_ezgripper_finger_L2_pad_1" link2="main_ezgripper_finger_L2_2" reason="Never" />
+  <disable_collisions link1="main_ezgripper_finger_L2_pad_1" link2="main_ezgripper_finger_L1_2" reason="Never" />
+  <disable_collisions link1="main_ezgripper_finger_L2_1" link2="main_ezgripper_finger_L2_pad_2" reason="Never" />
+  <disable_collisions link1="main_ezgripper_finger_L2_1" link2="main_ezgripper_finger_L2_2" reason="Never" />
+  <disable_collisions link1="main_ezgripper_finger_L2_1" link2="main_ezgripper_finger_L1_2" reason="Never" />
+  <disable_collisions link1="main_ezgripper_finger_L1_1" link2="main_ezgripper_finger_L2_pad_2" reason="Never" />
+  <disable_collisions link1="main_ezgripper_finger_L1_1" link2="main_ezgripper_finger_L2_2" reason="Never" />
+  <disable_collisions link1="main_ezgripper_finger_L1_1" link2="main_ezgripper_finger_L1_2" reason="Never" />
 </robot>
