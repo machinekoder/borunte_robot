@@ -60,6 +60,16 @@
     </include>-->
   <!--</group>-->
 
+  <!-- Start tool/gripper nodes -->
+  <node pkg="ezgripper_driver" type="ezgripper.py" name="ezgripper" output="screen" if="$(eval tool == 'ezgripper_gen2_plus' and not sim)">
+    <param name="port" value="hwgrep://0403:6015"/>
+    <param name="baud" value="57600"/>
+    <rosparam param="grippers">{main:[1]}</rosparam>
+  </node>
+  <node pkg="ezgripper_driver" type="ezgripper_sim.py" name="ezgripper" output="screen" if="$(eval tool == 'ezgripper_gen2_plus' and sim)">
+    <rosparam param="grippers">{main:[1]}</rosparam>
+  </node>
+
   <!-- publish the robot state (tf transforms) -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
