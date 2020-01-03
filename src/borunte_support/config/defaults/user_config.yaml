@@ -1,6 +1,7 @@
 user_config:
   jograte: 0.1
   feedrate: 0.1
+  maximum_velocity: 0.1
   jog:
     continuous: false
     step_size: 0
