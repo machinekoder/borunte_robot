@@ -96,7 +96,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          camera_link:
+          depth_camera_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -169,6 +169,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          rgb_camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           tool0:
             Alpha: 1
             Show Axes: false
@@ -241,7 +245,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          camera_link:
+          depth_camera_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -314,6 +318,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          rgb_camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           tool0:
             Alpha: 1
             Show Axes: false
@@ -338,7 +346,7 @@ Visualization Manager:
           Value: false
         borunte_stand_link:
           Value: false
-        camera_link:
+        depth_camera_link:
           Value: false
         flange:
           Value: false
@@ -368,6 +376,8 @@ Visualization Manager:
           Value: false
         main_ezgripper_palm_link:
           Value: false
+        rgb_camera_link:
+          Value: false
         tool0:
           Value: true
       Marker Scale: 0.10000000149011612
@@ -389,7 +399,7 @@ Visualization Manager:
                         link_6:
                           flange:
                             borunte_ezgripper_adapter:
-                              camera_link:
+                              depth_camera_link:
                                 {}
                               main_ezgripper_palm_link:
                                 main_ezgripper_finger_L1_1:
@@ -400,6 +410,8 @@ Visualization Manager:
                                   main_ezgripper_finger_L2_2:
                                     main_ezgripper_finger_L2_pad_2:
                                       {}
+                              rgb_camera_link:
+                                {}
                             tool0:
                               {}
       Update Interval: 0
@@ -435,10 +447,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5647951364517212
+      Pitch: 0.6047950387001038
       Target Frame: base_link
       Value: XYOrbit (rviz)
-      Yaw: 1.2867604494094849
+      Yaw: 1.5967589616775513
     Saved: ~
 Window Geometry:
   Displays:

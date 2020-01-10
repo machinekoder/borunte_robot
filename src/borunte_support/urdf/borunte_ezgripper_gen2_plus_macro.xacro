@@ -31,12 +31,19 @@
       </collision>
     </link>
 
-    <!-- Camera frame: location of wrist camera -->
-    <link name="${prefix}camera_link" />
-    <joint name="${prefix}borunte_ezgripper_adapter-camera_link" type="fixed">
-      <origin xyz="0.06 0 0.03" rpy="0 0 ${pi/2.0}" />
+    <!-- Camera frame: location of wrist cameras -->
+    <link name="${prefix}rgb_camera_link" />
+    <joint name="${prefix}borunte_ezgripper_adapter-rgb_camera_link" type="fixed">
+      <origin xyz="0.0391 0 0.082" rpy="0 0 ${pi/2.0}" />
       <parent link="${prefix}borunte_ezgripper_adapter" />
-      <child link="${prefix}camera_link" />
+      <child link="${prefix}rgb_camera_link" />
+    </joint>
+
+    <link name="${prefix}depth_camera_link" />
+    <joint name="${prefix}borunte_ezgripper_adapter-depth_camera_link" type="fixed">
+      <origin xyz="-0.0321 0 0.0885" rpy="0 0 ${pi/2.0}" />
+      <parent link="${prefix}borunte_ezgripper_adapter" />
+      <child link="${prefix}depth_camera_link" />
     </joint>
 
     <!-- attach hand_e to eef -->
