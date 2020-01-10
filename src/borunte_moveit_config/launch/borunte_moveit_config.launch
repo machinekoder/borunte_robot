@@ -10,7 +10,7 @@
   <arg name="hal_debug_level" default="1"/>
 
   <!-- argument for a name of a tool on the end effector-->
-  <arg name="tool" default="hand_e"/>
+  <arg name="tool" default="ezgripper_gen2_plus"/>
 
   <include
       file="$(find borunte_moveit_config)/launch/moveit_planning_execution.launch"
