@@ -22,7 +22,12 @@
   <include file="$(find ros_machinetalk)/launch/machinetalk_manager.launch"/>
 
   <include file="$(find tag_tracking)/launch/elp_camera_cv_stream.launch" unless="$(arg sim)"/>
-  <include file="$(find tag_tracking)/launch/tracking.launch"/>
+  <include file="$(find tag_tracking)/launch/tracking.launch">
+    <arg name="output_frame" value="world" />
+  </include>
+  <include file="$(find barcode_tracking)/launch/barcode_detector.launch">
+    <arg name="output_frame" value="world" />
+  </include>
 
   <include file="$(find robot_ui)/launch/robot_ui_moveit.launch">
     <arg name="live_coding" value="$(arg live_coding)"/>
