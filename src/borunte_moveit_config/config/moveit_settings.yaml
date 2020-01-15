@@ -2,7 +2,7 @@ moveit:
   move_group: 'manipulator' # MoveIt move group to use
   allow_replanning: false # Specify whether the robot is allowed to replan if it detects changes in the environment.
   planning_time: 1.0 # Specify the maximum planning time in seconds
-  pose_reference_frame: 'borunte_stand_link' # Specify which reference frame to assume for poses specified without a reference frame.
+  pose_reference_frame: 'world' # Specify which reference frame to assume for poses specified without a reference frame.
   goal_position_tolerance: 0.000001 # position tolerance that is used for reaching the goal when moving to a pose
   goal_orientation_tolerance: 0.001 # orientation tolerance that is used for reaching the goal when moving to a pose
   goal_joint_tolerance: 0.00001 # joint tolerance (for each joint) that is used for reaching the goal when moving to a joint value target

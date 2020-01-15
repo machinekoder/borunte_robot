@@ -20,6 +20,15 @@
       </collision>
     </link>
 
+    <!-- 'world' frame: default pose reference frame -->
+    <link name="${prefix}world" />
+    <joint name="${prefix}rb07_stand_link-world" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <parent link="${prefix}borunte_stand_link"/>
+      <child link="${prefix}world"/>
+    </joint>
+
     <!-- link the robot is going to be attached to -->
     <link name="${prefix}borunte_stand_flange" />
 

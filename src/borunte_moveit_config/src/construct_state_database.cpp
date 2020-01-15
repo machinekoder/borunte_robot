@@ -17,7 +17,7 @@ const std::string &name, const tf2::Quaternion &orientation, double x, double y,
 
   moveit_msgs::OrientationConstraint ocm;
   ocm.link_name = "tool0";
-  ocm.header.frame_id = "borunte_stand_link";
+  ocm.header.frame_id = "world";
   ocm.orientation.x = orientation.x();
   ocm.orientation.y = orientation.y();
   ocm.orientation.z = orientation.z();
