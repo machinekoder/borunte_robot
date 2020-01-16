@@ -4,7 +4,7 @@
     <xacro:include filename="$(find borunte_support)/urdf/borunte_macro.xacro"/>
     <xacro:borunte_macro prefix="${prefix}"/>
 
-    <xacro:include filename="$(find ezgripper_driver)/urdf/ezgripper_dual_gen2_plus_articulated.urdf.xacro"/>
+    <xacro:include filename="$(find ezgripper_driver)/urdf/ezgripper_dual_gen2_plus_cam_articulated.urdf.xacro"/>
     <!-- Add the gripper -->
     <ezgripper_dual prefix="main" parent_link="${prefix}borunte_ezgripper_adapter">
 
