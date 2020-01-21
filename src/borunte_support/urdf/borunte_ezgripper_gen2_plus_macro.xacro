@@ -34,7 +34,7 @@
     <!-- Camera frame: location of wrist cameras -->
     <link name="${prefix}rgb_camera_link" />
     <joint name="${prefix}borunte_ezgripper_adapter-rgb_camera_link" type="fixed">
-      <origin xyz="0.0391 0 0.082" rpy="0 0 ${pi/2.0}" />
+      <origin xyz="0.0391 0 0.0885" rpy="0 0 ${pi/2.0}" />
       <parent link="${prefix}borunte_ezgripper_adapter" />
       <child link="${prefix}rgb_camera_link" />
     </joint>
