@@ -48,7 +48,7 @@
   <run_depend>std_msgs</run_depend>
   <run_depend>hal_hw_interface</run_depend>
   <run_depend>borunte_hal</run_depend>
-  <!-- <run_depend>jog_arm</run_depend> -->
+  <run_depend>ezgripper_driver</run_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

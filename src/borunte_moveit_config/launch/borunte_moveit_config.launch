@@ -4,10 +4,11 @@
   <arg name="rviz" default="false"/>
 
   <!-- Run in real or sim hardware mode -->
-  <arg name="sim" default="$(eval optenv('HAVE_REAL_HARDWARE', 'false') == 'false')"/>
+  <arg name="sim" default="$(eval optenv('HARDWARE_MODE', 'sim') == 'sim')"/>
 
-  <!-- HAL debug level-->
+  <!-- HAL debugging-->
   <arg name="hal_debug_level" default="1"/>
+  <arg name="hal_debug_output" default="false"/>
 
   <!-- argument for a name of a tool on the end effector-->
   <arg name="tool" default="ezgripper_gen2_plus"/>

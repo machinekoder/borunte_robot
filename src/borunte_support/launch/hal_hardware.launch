@@ -11,7 +11,7 @@
   <arg name="hal_debug_level" default="1"/>
 
   <!-- - Run in simulated hardware mode -->
-  <arg name="sim" default="$(eval optenv('HAVE_REAL_HARDWARE', 'false') == 'false')"/>
+  <arg name="sim" default="$(eval optenv('HARDWARE_MODE', 'sim') == 'sim')"/>
 
   <!-- - Tool to use -->
   <arg name="tool" default="none" />
