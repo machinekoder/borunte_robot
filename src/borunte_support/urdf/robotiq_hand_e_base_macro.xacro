@@ -48,13 +48,5 @@
       <origin xyz="0 0 0.015" rpy="${pi} ${pi} ${pi/2.0}" />
     </joint>
 
-    <!-- Camera frame: location of wrist camera -->
-    <link name="${prefix}rgb_camera_link" />
-    <joint name="${prefix}borunte_robotiq_adapter-rgb_camera_link" type="fixed">
-      <origin xyz="0.06 0 0.03" rpy="0 0 ${pi/2.0}" />
-      <parent link="${prefix}borunte_robotiq_adapter" />
-      <child link="${prefix}rgb_camera_link" />
-    </joint>
-
     </xacro:macro>
 </robot>
