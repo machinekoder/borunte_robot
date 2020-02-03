@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Arguments passed to other launch files -->
+  <arg name="live_coding" default="false"/>
+  <arg name="dev_mode" default="false"/>
+  <arg name="tool" default="ezgripper_gen2_plus"/>
+  <arg name="sim" default="$(eval optenv('HARDWARE_MODE', 'sim') == 'sim')"/>
+  <arg name="hal_debug_output" default="false"/>
+  <arg name="hal_debug_level" default="1"/>
+
+  <rosparam param="robot_ui_config/rviz_config" subst_value="true"
+            >$(find borunte_moveit_config)/config/moveit.rviz</rosparam>
+  <rosparam
+      command="load"
+      file="$(find borunte_moveit_config)/config/moveit_settings.yaml"
+      />
+  <rosparam
+      command="load"
+      file="$(find borunte_support)/config/io_config.yaml"
+      />
+
+  <include
+      file="$(find borunte_moveit_config)/launch/borunte_moveit_config.launch"
+      >
+    <arg name="rviz" value="false" />
+    <arg name="tool" value="$(arg tool)" />
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="hal_debug_output" value="$(arg hal_debug_output)"/>
+    <arg name="hal_debug_level" value="$(arg hal_debug_level)"/>
+  </include>
+
+  <include file="$(find borunte_support)/launch/jogging.launch"/>
+
+  <include file="$(find tag_tracking)/launch/elp_camera_cv_stream.launch" unless="$(arg sim)"/>
+  <include file="$(find tag_tracking)/launch/tracking.launch">
+    <arg name="output_frame" value="world" />
+  </include>
+  <include file="$(find barcode_tracking)/launch/barcode_detector.launch">
+    <arg name="output_frame" value="world" />
+  </include>
+
+  <include
+      file="$(find robot_ui)/launch/robot_ui.launch"
+      >
+    <arg name="live_coding" value="$(arg live_coding)"/>
+    <arg name="dev_mode" value="$(arg dev_mode)"/>
+  </include>
+</launch>
