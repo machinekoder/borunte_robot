@@ -31,7 +31,7 @@
 
   <include file="$(find borunte_support)/launch/jogging.launch"/>
 
-  <include file="$(find tag_tracking)/launch/elp_camera_cv_stream.launch" unless="$(arg sim)"/>
+  <include file="$(find tag_tracking)/launch/elp_camera_13mp_cv_stream.launch" unless="$(arg sim)"/>
   <include file="$(find tag_tracking)/launch/tracking.launch">
     <arg name="output_frame" value="world" />
   </include>

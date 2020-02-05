@@ -34,14 +34,14 @@
     <!-- Camera frame: location of wrist cameras -->
     <link name="${prefix}rgb_camera_link" />
     <joint name="${prefix}borunte_ezgripper_adapter-rgb_camera_link" type="fixed">
-      <origin xyz="0.042 0 0.052" rpy="0 0 ${pi/2.0}" />
+      <origin xyz="0.042 0 0.027" rpy="0 0 ${pi/2.0}" />
       <parent link="${prefix}borunte_ezgripper_adapter" />
       <child link="${prefix}rgb_camera_link" />
     </joint>
 
     <link name="${prefix}depth_camera_link" />
     <joint name="${prefix}borunte_ezgripper_adapter-depth_camera_link" type="fixed">
-      <origin xyz="0.074 0 0.0325" rpy="0 0 ${pi/2.0}" />
+      <origin xyz="0.074 0 0.0255" rpy="0 0 ${pi/2.0}" />
       <parent link="${prefix}borunte_ezgripper_adapter" />
       <child link="${prefix}depth_camera_link" />
     </joint>
