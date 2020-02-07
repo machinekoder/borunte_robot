@@ -31,12 +31,31 @@
 
   <include file="$(find borunte_support)/launch/jogging.launch"/>
 
-  <include file="$(find tag_tracking)/launch/elp_camera_13mp_cv_stream.launch" unless="$(arg sim)"/>
+  <!-- launch vision chain -->
+  <arg name="manager" default="camera_nodelet_manager"/>
+
+  <include file="$(find tag_tracking)/launch/combine_rgbd.launch">
+    <arg name="manager" value="$(arg manager)"/>
+  </include>
+
+  <include file="$(find tag_tracking)/launch/elp_camera_13mp_cv_stream.launch" unless="$(arg sim)">
+    <arg name="manager" value="$(arg manager)"/>
+    <arg name="use_manager" value="true"/>
+  </include>
+
+  <include file="$(find tag_tracking)/launch/pico_flexx_camera.launch" unless="$(arg sim)">
+    <arg name="manager" value="$(arg manager)"/>
+    <arg name="use_manager" value="true"/>
+  </include>
+
   <include file="$(find tag_tracking)/launch/tracking.launch">
     <arg name="output_frame" value="world" />
   </include>
-  <include file="$(find barcode_tracking)/launch/barcode_detector.launch">
+
+  <include file="$(find barcode_tracking)/launch/barcode_detector_rgbd.launch">
     <arg name="output_frame" value="world" />
+    <arg name="manager" value="$(arg manager)"/>
+    <arg name="use_manager" value="true"/>
   </include>
 
   <include
