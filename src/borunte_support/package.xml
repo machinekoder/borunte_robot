@@ -43,13 +43,21 @@
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
+  <run_depend>xacro</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>std_msgs</run_depend>
   <run_depend>hal_hw_interface</run_depend>
   <run_depend>borunte_hal</run_depend>
   <run_depend>ezgripper_driver</run_depend>
-
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>controller_manager</run_depend>
+  <run_depend>joy</run_depend>
+  <run_depend>jog_arm</run_depend>
+  <run_depend>robot_jog</run_depend>
+  <run_depend>redis_store</run_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
