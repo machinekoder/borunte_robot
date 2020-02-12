@@ -48,8 +48,9 @@
     <arg name="use_manager" value="true"/>
   </include>
 
-  <include file="$(find tag_tracking)/launch/tracking.launch">
-    <arg name="output_frame" value="world" />
+  <include file="$(find tag_tracking)/launch/ar_track_alvar.launch">
+    <arg name="output_frame" value="world"/>
+    <arg name="use_cloud" value="false"/>
   </include>
 
   <include file="$(find barcode_tracking)/launch/barcode_detector_rgbd.launch">
