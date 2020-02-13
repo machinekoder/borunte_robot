@@ -53,7 +53,7 @@
     <arg name="use_cloud" value="false"/>
   </include>
 
-  <include file="$(find barcode_tracking)/launch/barcode_detector_rgbd.launch">
+  <include file="$(find barcode_tracking)/launch/barcode_detector.launch">
     <arg name="output_frame" value="world" />
     <arg name="manager" value="$(arg manager)"/>
     <arg name="use_manager" value="true"/>
