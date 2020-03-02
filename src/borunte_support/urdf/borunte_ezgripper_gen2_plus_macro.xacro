@@ -7,7 +7,6 @@
     <xacro:include filename="$(find ezgripper_driver)/urdf/ezgripper_dual_gen2_plus_articulated.urdf.xacro"/>
     <!-- Add the gripper -->
     <ezgripper_dual prefix="main" parent_link="${prefix}borunte_ezgripper_adapter">
-
       <origin xyz="0 0 0.012" rpy="${pi} ${-pi/2.0} 0.0"/>
     </ezgripper_dual>
 
