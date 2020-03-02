@@ -1,8 +1,13 @@
 <?xml version="1.0"?>
 <launch>
   <!--
-      This .launch file brings up the rb07 controller
+      This .launch file brings up the borunte controller
   -->
+  <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
+  <arg name="load_robot_description" default="true"/>
+
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
 
   <!-- HAL debug output -->
   <!-- - Output HAL debug messages to screen (console) -->

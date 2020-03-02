@@ -3,15 +3,13 @@
   <!-- Don't run rviz by default -->
   <arg name="rviz" default="false"/>
 
-  <!-- Run in real or sim hardware mode -->
-  <arg name="sim" default="$(eval optenv('HARDWARE_MODE', 'sim') == 'sim')"/>
-
-  <!-- HAL debugging-->
-  <arg name="hal_debug_level" default="1"/>
-  <arg name="hal_debug_output" default="false"/>
-
   <!-- argument for a name of a tool on the end effector-->
   <arg name="tool" default="ezgripper_gen2_plus"/>
+
+    <rosparam
+      command="load"
+      file="$(find borunte_moveit_config)/config/moveit_settings.yaml"
+      />
 
   <include
       file="$(find borunte_moveit_config)/launch/moveit_planning_execution.launch"

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- HAL debug output -->
+  <!-- - Output HAL debug messages to screen (console) -->
+  <arg name="hal_debug_output" default="false"/>
+  <!-- - Set HAL debug level, 0-5 -->
+  <arg name="hal_debug_level" default="1"/>
+  <!-- start in sim mode -->
+  <arg name="sim" default="$(eval optenv('HARDWARE_MODE', 'sim') == 'sim')"/>
+  <!-- ID of the tool to use -->
+  <arg name="tool" default="ezgripper_gen2_plus"/>
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
+  <!-- The camera nodelet manager to start -->
+  <arg name="manager" default="camera_nodelet_manager"/>
+
+  <!-- set sim param -->
+  <param name="sim" value="$(arg sim)" />
+
+  <!-- Load universal robot description format (URDF) -->
+  <param name="$(arg robot_description)" command="$(find xacro)/xacro --inorder '$(find borunte_support)/urdf/borunte_on_stand.xacro' tool:=$(arg tool)"/>
+
+  <!-- load I/O config -->
+  <rosparam
+      command="load"
+      file="$(find borunte_support)/config/io_config.yaml"
+      />
+
+  <!-- run the "real robot" interface nodes -->
+  <include file="$(find borunte_support)/launch/hal_hardware.launch">
+    <arg name="hal_debug_output" value="$(arg hal_debug_output)"/>
+    <arg name="hal_debug_level" value="$(arg hal_debug_level)"/>
+    <arg name="sim" value="$(arg sim)"/>
+    <arg name="tool" value="$(arg tool)" />
+  </include>
+
+  <!-- Start tool/gripper nodes -->
+  <node pkg="ezgripper_driver" type="ezgripper.py" name="ezgripper" output="screen" if="$(eval tool == 'ezgripper_gen2_plus' and not sim)">
+    <param name="port" value="hwgrep://0403:6015"/>
+    <param name="baud" value="57600"/>
+    <rosparam param="grippers">{main:[1]}</rosparam>
+  </node>
+  <node pkg="ezgripper_driver" type="ezgripper_sim.py" name="ezgripper" output="screen" if="$(eval tool == 'ezgripper_gen2_plus' and sim)">
+    <rosparam param="grippers">{main:[1]}</rosparam>
+  </node>
+
+  <!-- publish the robot state (tf transforms) -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- launch vision chain -->
+  <include file="$(find tag_tracking)/launch/combine_rgbd.launch">
+    <arg name="manager" value="$(arg manager)"/>
+  </include>
+
+  <include file="$(find tag_tracking)/launch/elp_camera_13mp_cv_stream.launch" unless="$(arg sim)">
+    <arg name="manager" value="$(arg manager)"/>
+    <arg name="use_manager" value="true"/>
+  </include>
+
+  <include file="$(find tag_tracking)/launch/pico_flexx_camera.launch" unless="$(arg sim)">
+    <arg name="manager" value="$(arg manager)"/>
+    <arg name="use_manager" value="true"/>
+  </include>
+</launch>
