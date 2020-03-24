@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Arguments passed to other launch files -->
+  <arg name="live_coding" default="true"/>
+  <arg name="dev_mode" default="false"/>
+  <arg name="tool" default="ezgripper_gen2_plus"/>
+  <arg name="start_hardware" default="true"/>
+
+  <rosparam param="robot_ui_config/rviz_config" subst_value="true"
+            >$(find borunte_moveit_config)/config/moveit.rviz</rosparam>
+
+  <!-- start the robot hardware if not already started -->
+  <include if="$(arg start_hardware)" file="$(find borunte_support)/launch/hw_bringup.launch">
+    <arg name="tool" value="$(arg tool)"/>
+  </include>
+
+  <!-- start the moveit config -->
+  <include
+      file="$(find borunte_moveit_config)/launch/borunte_moveit_config.launch"
+      >
+    <arg name="rviz" value="false" />
+    <arg name="tool" value="$(arg tool)" />
+  </include>
+
+  <!-- load the parameter persistence server -->
+  <include
+    file="$(find borunte_support)/launch/parameter_persistence.launch"
+      />
+
+  <!-- start jogging support -->
+  <include file="$(find borunte_support)/launch/jogging.launch"/>
+
+  <!-- start vision tracking tools -->
+  <include file="$(find borunte_support)/launch/tracking_tools.launch"/>
+
+  <!-- start the robot UI -->
+  <include
+      file="$(find robot_ui)/launch/order_ui.launch"
+      >
+    <arg name="live_coding" value="$(arg live_coding)"/>
+    <arg name="dev_mode" value="$(arg dev_mode)"/>
+  </include>
+</launch>
