@@ -1,6 +1,6 @@
 <launch>
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
-  <arg name="load_robot_description" default="true"/>
+  <arg name="load_robot_description" default="false"/>
 
   <!-- The name of the parameter under which the URDF is loaded -->
   <arg name="robot_description" default="robot_description"/>
@@ -12,10 +12,11 @@
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro --inorder '$(find borunte_support)/urdf/borunte_on_stand.xacro' tool:=$(arg tool)"/>
 
   <!-- The semantic description that corresponds to the URDF -->
-  <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support.srdf" if="$(eval tool == 'none')"/>
+  <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_on_stand.srdf" />
+  <!-- <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support.srdf" if="$(eval tool == 'none')"/>
   <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support_hand_e.srdf" if="$(eval tool == 'hand_e')"/>
   <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support_hand_e_fish_fingers.srdf" if="$(eval tool == 'hand_e_fish_fingers')"/>
-  <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support_ezgripper_gen2_plus.srdf" if="$(eval tool == 'ezgripper_gen2_plus')"/>
+  <param name="$(arg robot_description)_semantic" textfile="$(find borunte_moveit_config)/config/borunte_support_ezgripper_gen2_plus.srdf" if="$(eval tool == 'ezgripper_gen2_plus')"/> -->
 
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">

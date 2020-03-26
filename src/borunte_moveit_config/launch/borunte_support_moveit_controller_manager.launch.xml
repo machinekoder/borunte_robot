@@ -1,9 +1,10 @@
 <launch>
-    <arg name="moveit_controller_manager"
-         default="moveit_ros_control_interface::MoveItControllerManager"/>
-    <param name="moveit_controller_manager"
-           value="$(arg moveit_controller_manager)"/>
 
-    <rosparam file="$(find borunte_support)/config/borunte_controllers.yaml"/>
+  <!-- loads moveit_controller_manager on the parameter server which is taken as argument
+    if no argument is passed, moveit_simple_controller_manager will be set -->
+  <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
+  <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
 
+  <!-- loads ros_controllers to the param server -->
+  <rosparam file="$(find borunte_moveit_config)/config/ros_controllers.yaml"/>
 </launch>

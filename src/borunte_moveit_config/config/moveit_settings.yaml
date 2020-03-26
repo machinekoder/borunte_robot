@@ -7,4 +7,4 @@ moveit:
   goal_orientation_tolerance: 0.001 # orientation tolerance that is used for reaching the goal when moving to a pose
   goal_joint_tolerance: 0.00001 # joint tolerance (for each joint) that is used for reaching the goal when moving to a joint value target
   num_planning_attempts: 1 # the number of times the motion plan is to be computed from scratch before the shortest solution is returned
-  planner_id: 'RRTkConfigDefault' # planner to be used for planning
+  planner_id: 'RRT' # planner to be used for planning
