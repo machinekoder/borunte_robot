@@ -27,6 +27,9 @@
     file="$(find borunte_support)/launch/parameter_persistence.launch"
       />
 
+  <!-- start offset node -->
+  <include file="$(find robot_offset)/launch/offset_node.launch"/>
+
   <!-- start jogging support -->
   <include file="$(find borunte_support)/launch/jogging.launch"/>
 
