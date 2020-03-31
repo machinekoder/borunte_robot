@@ -36,6 +36,9 @@
   <!-- start vision tracking tools -->
   <include file="$(find borunte_support)/launch/tracking_tools.launch"/>
 
+  <!-- start flexbe behavior -->
+  <include file="$(find bottle_tend_flexbe_behaviors)/launch/high_level_behavior.launch"/>
+
   <!-- start the robot UI -->
   <include
       file="$(find robot_ui)/launch/order_ui.launch"
