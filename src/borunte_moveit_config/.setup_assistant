@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: borunte_support
+    relative_path: urdf/borunte_on_stand.xacro
+    xacro_args: --inorder tool:=ezgripper_gen2_plus
+  SRDF:
+    relative_path: config/borunte_on_stand.srdf
+  CONFIG:
+    author_name: Alex Rössler
+    author_email: alex@lunchbotics.com
+    generated_timestamp: 1584629237
