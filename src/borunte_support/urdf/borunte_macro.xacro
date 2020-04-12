@@ -172,7 +172,8 @@
     </joint>
 
     <joint name="${prefix}joint_4" type="revolute">
-      <limit effort="1000.0" lower="-2.094" upper="2.094" velocity="2.0"/>
+      <!-- actual limit +-2.094, reduced to reduce config problems -->
+      <limit effort="1000.0" lower="${-pi/2.0}" upper="${pi/2.0}" velocity="2.0"/>
       <parent link="link_3"/>
       <child link="link_4"/>
       <axis xyz="0 0 1"/>
