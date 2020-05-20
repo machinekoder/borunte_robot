@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="borunte_macro" params="prefix">
-    <material name="Black">
-      <color rgba="0.1 0.1 0.1 1.0"/>
+    <material name="${prefix}Black">
+      <color rgba="0.1 0.1 0.1 0.99"/>
     </material>
-    <material name="DarkRed">
-      <color rgba="0.5 0.0 0.0 1.0"/>
+    <material name="${prefix}DarkRed">
+      <color rgba="0.5 0.0 0.0 0.99"/>
     </material>
 
     <!-- link list -->
@@ -15,7 +15,7 @@
           <mesh filename="package://borunte_support/meshes/base_link.stl"/>
         </geometry>
         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
-        <material name="Black"/>
+        <material name="${prefix}Black"/>
       </visual>
       <collision>
         <geometry>
@@ -31,7 +31,7 @@
           <mesh filename="package://borunte_support/meshes/link_1.stl"/>
         </geometry>
         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
-        <material name="DarkRed"/>
+        <material name="${prefix}DarkRed"/>
       </visual>
       <collision>
         <geometry>
@@ -51,7 +51,7 @@
           <mesh filename="package://borunte_support/meshes/link_2.stl"/>
         </geometry>
         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
-        <material name="DarkRed"/>
+        <material name="${prefix}DarkRed"/>
       </visual>
       <collision>
         <geometry>
@@ -71,7 +71,7 @@
           <mesh filename="package://borunte_support/meshes/link_3.stl"/>
         </geometry>
         <origin rpy="0.0 0 0.0" xyz="0 0.01 0"/>
-        <material name="DarkRed"/>
+        <material name="${prefix}DarkRed"/>
       </visual>
       <collision>
         <geometry>
@@ -91,7 +91,7 @@
           <mesh filename="package://borunte_support/meshes/link_4.stl"/>
         </geometry>
         <origin rpy="0.0 0.0 0.0" xyz="0 0 0"/>
-        <material name="DarkRed"/>
+        <material name="${prefix}DarkRed"/>
       </visual>
       <collision>
         <geometry>
@@ -111,7 +111,7 @@
           <mesh filename="package://borunte_support/meshes/link_5.stl"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <material name="DarkRed"/>
+        <material name="${prefix}DarkRed"/>
       </visual>
       <collision>
         <geometry>
@@ -131,7 +131,7 @@
           <mesh filename="package://borunte_support/meshes/link_6.stl"/>
         </geometry>
         <origin rpy="0 0 0.0" xyz="0 0 0"/>
-        <material name="DarkRed"/>
+        <material name="${prefix}DarkRed"/>
       </visual>
       <collision>
         <geometry>

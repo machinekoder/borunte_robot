@@ -10,8 +10,8 @@
       <origin xyz="0 0 0.012" rpy="${pi} ${-pi/2.0} 0"/>
     </ezgripper_dual>
 
-    <material name="Black_Plastic">
-      <color rgba="0.1 0.1 0.1 1.0"/>
+    <material name="${prefix}Black_Plastic">
+      <color rgba="0.1 0.1 0.1 0.99"/>
     </material>
 
     <link name="${prefix}borunte_ezgripper_adapter">
@@ -20,7 +20,7 @@
           <mesh filename="package://borunte_support/meshes/borunte_ezgripper_adapter.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <material name="Black_Plastic"/>
+        <material name="${prefix}Black_Plastic"/>
       </visual>
       <collision>
         <geometry>

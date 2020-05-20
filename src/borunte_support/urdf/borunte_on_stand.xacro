@@ -2,4 +2,13 @@
 <robot name="borunte_on_stand" xmlns:xacro="http://ros.org/wiki/xacro">
 	<xacro:include filename="$(find borunte_support)/urdf/borunte_on_stand_macro.xacro"/>
 	<xacro:borunte_on_stand_macro robotprefix="" standprefix="" tool="$(arg tool)"/>
+
+    <!-- 'world' frame: default pose reference frame -->
+    <link name="world" />
+    <joint name="world-borunte_stand_link" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <child link="world"/>
+      <parent link="borunte_stand_link"/>
+    </joint>
 </robot>

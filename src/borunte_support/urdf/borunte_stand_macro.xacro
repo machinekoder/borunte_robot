@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="borunte_stand_macro" params="prefix">
-    <material name="DarkGray">
-      <color rgba="0.5 0.5 0.5 1.0"/>
+    <material name="${prefix}DarkGray">
+      <color rgba="0.5 0.5 0.5 0.75"/>
     </material>
 
     <!-- link list  -->
@@ -12,7 +12,7 @@
           <mesh filename="package://borunte_support/meshes/borunte_carriage.stl"/>
         </geometry>
         <origin rpy="0.0 0 0.0" xyz="0 0 0"/>
-        <material name="DarkGray"/>
+        <material name="${prefix}DarkGray"/>
       </visual>
       <collision>
         <geometry>
@@ -21,15 +21,6 @@
         <origin rpy="0.0 0 0.0" xyz="0 0 0.0"/>
       </collision>
     </link>
-
-    <!-- 'world' frame: default pose reference frame -->
-    <link name="${prefix}world" />
-    <joint name="${prefix}borunte_stand_link-world" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <axis xyz="0 0 1"/>
-      <parent link="${prefix}borunte_stand_link"/>
-      <child link="${prefix}world"/>
-    </joint>
 
     <!-- link the robot is going to be attached to -->
     <link name="${prefix}borunte_stand_flange" />

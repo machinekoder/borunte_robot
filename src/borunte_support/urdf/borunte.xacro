@@ -1,5 +1,14 @@
 <?xml version="1.0" ?>
 <robot name="borunte" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find borunte_support)/urdf/borunte_none_macro.xacro"/>
-  <xacro:borunte_none_macro prefix=""/>
+    <xacro:include filename="$(find borunte_support)/urdf/borunte_none_macro.xacro"/>
+    <xacro:borunte_none_macro prefix=""/>
+
+    <!-- 'world' frame: default pose reference frame -->
+    <link name="world" />
+    <joint name="world-base_link" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <child link="world"/>
+      <parent link="base_link"/>
+    </joint>
 </robot>

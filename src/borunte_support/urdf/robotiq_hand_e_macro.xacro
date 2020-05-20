@@ -11,7 +11,7 @@
           <mesh filename="package://borunte_support/meshes/simple_grip_finger.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <material name="Black_Aluminum"/>
+        <material name="${prefix}Black_Aluminum"/>
       </visual>
       <collision>
         <geometry>
@@ -33,7 +33,7 @@
           <mesh filename="package://borunte_support/meshes/simple_grip_finger.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <material name="Black_Aluminum"/>
+        <material name="${prefix}Black_Aluminum"/>
       </visual>
       <collision>
         <geometry>
